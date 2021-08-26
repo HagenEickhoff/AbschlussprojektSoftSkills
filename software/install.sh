@@ -1,7 +1,8 @@
 #!/bin/bash
-    #TODO: - Check if more node-red packages are needed
-    #      - Check if WIFI/Audio setup can be scripted
-    #      - Test script x)
+
+#TODO: - Check if more node-red packages are needed
+#      - Check if WIFI/Audio setup can be scripted
+#      - Test script x)
 echo "Bitte stellen Sie sicher, dass sie bereits folgende Schritte erledigt haben:"
 echo " - NodeRED installiert"
 echo " - Systemupdates installiert (apt-get upgrade && apt-get upgrade)"
@@ -17,7 +18,7 @@ then
         exit
     fi
     
-    #install package to play sounds on RasPi directly
+    # install package to play sounds on RasPi directly
     echo "Installiere libasound2-dev..."
     sudo apt-get install libasound2-dev -y
 
@@ -33,7 +34,14 @@ then
     npm install node-red-contrib-telegrambot --save
     npm install node-red-dashboard
 
-    read
+    echo "Installing mosquitto MQTT-Broker"
+    sudo apt-get install mosquitto -y
+    sudo systemctl enable mosquitto # make sure auto-start is enabled
+    # TODO: mosquitto config (username/password "generator")
+    sudo systemctl restart mosquitto # (re-)start mosquitto
+
+    echo "Finished all installations..."
+    exit
 else
     echo "Bitte führen Sie die benötigten Installationen durch, bevor Sie fortfahren."
     exit
