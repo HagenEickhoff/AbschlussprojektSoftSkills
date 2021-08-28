@@ -19,8 +19,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "klingelAudioSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -31,10 +31,12 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 190,
-        "y": 100,
+        "x": 870,
+        "y": 40,
         "wires": [
-            []
+            [
+                "29bba17caca2abd1"
+            ]
         ]
     },
     {
@@ -50,8 +52,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "klingelMessengerSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -62,10 +64,12 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 210,
-        "y": 140,
+        "x": 1090,
+        "y": 160,
         "wires": [
-            []
+            [
+                "20bc9963bd38cecd"
+            ]
         ]
     },
     {
@@ -81,8 +85,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "klingelHistorySwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -93,10 +97,12 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 200,
-        "y": 180,
+        "x": 1220,
+        "y": 300,
         "wires": [
-            []
+            [
+                "3d6014238e34a9f7"
+            ]
         ]
     },
     {
@@ -112,8 +118,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "klingelEnableSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -124,10 +130,12 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 200,
-        "y": 60,
+        "x": 580,
+        "y": 200,
         "wires": [
-            []
+            [
+                "e8f29149066f87f4"
+            ]
         ]
     },
     {
@@ -136,8 +144,8 @@
         "z": "5fffdd7bd03e62e5",
         "name": "Icon Location",
         "info": "Icons von hier: https://www.angularjswiki.com/de/angular/angular-material-icons-list-mat-icon-list/",
-        "x": 70,
-        "y": 20,
+        "x": 1850,
+        "y": 1520,
         "wires": []
     },
     {
@@ -158,8 +166,8 @@
         "min": "20",
         "max": "120",
         "step": "5",
-        "x": 1320,
-        "y": 60,
+        "x": 1860,
+        "y": 1620,
         "wires": [
             []
         ]
@@ -189,8 +197,8 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": true,
-        "x": 1300,
-        "y": 100,
+        "x": 1840,
+        "y": 1660,
         "wires": [
             []
         ]
@@ -220,8 +228,8 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 570,
-        "y": 100,
+        "x": 810,
+        "y": 1540,
         "wires": [
             []
         ]
@@ -251,8 +259,8 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 590,
-        "y": 140,
+        "x": 830,
+        "y": 1580,
         "wires": [
             []
         ]
@@ -282,8 +290,8 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 580,
-        "y": 180,
+        "x": 820,
+        "y": 1620,
         "wires": [
             []
         ]
@@ -313,8 +321,8 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 580,
-        "y": 60,
+        "x": 820,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -332,8 +340,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "detectorAudioSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -344,10 +352,12 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 950,
-        "y": 100,
+        "x": 1050,
+        "y": 520,
         "wires": [
-            []
+            [
+                "f734139f51182b01"
+            ]
         ]
     },
     {
@@ -363,8 +373,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "detectorMessengerSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -375,10 +385,12 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 970,
-        "y": 140,
+        "x": 1350,
+        "y": 640,
         "wires": [
-            []
+            [
+                "a8f13040b0acdf98"
+            ]
         ]
     },
     {
@@ -389,13 +401,13 @@
         "label": "Schreibe in Historie",
         "tooltip": "Schreibe Klingeln in Historientabelle",
         "group": "08607024c7e3ecad",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "detectorHistorySwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -406,10 +418,12 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 960,
-        "y": 180,
+        "x": 1080,
+        "y": 840,
         "wires": [
-            []
+            [
+                "0f2dc082c6d61e52"
+            ]
         ]
     },
     {
@@ -425,8 +439,8 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "detectorEnableSwitch",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -437,10 +451,12 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 960,
-        "y": 60,
+        "x": 660,
+        "y": 620,
         "wires": [
-            []
+            [
+                "6feb46805eac59c9"
+            ]
         ]
     },
     {
@@ -457,11 +473,474 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 1690,
-        "y": 80,
+        "x": 1840,
+        "y": 1560,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "08d5d3b223e1af86",
+        "type": "mqtt in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "MQTT RECEIVER",
+        "topic": "/DoorAssistant/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "6bccc9f8e5419fdf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "067fe98f6691059c"
+            ]
+        ]
+    },
+    {
+        "id": "067fe98f6691059c",
+        "type": "switch",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/DoorAssistant/Klingel",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "/DoorAssistant/Detector",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 350,
+        "y": 740,
+        "wires": [
+            [
+                "4002428cebcdc6b2"
+            ],
+            [
+                "5ad77385a7cb7f0e"
+            ],
+            [
+                "8226624aabd5304c"
+            ]
+        ]
+    },
+    {
+        "id": "5ad77385a7cb7f0e",
+        "type": "switch",
+        "z": "5fffdd7bd03e62e5",
+        "name": "DETECTOR",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/DoorAssistant/Detector/Input",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 610,
+        "y": 680,
+        "wires": [
+            [
+                "6feb46805eac59c9"
+            ],
+            [
+                "85b25059f6f16227"
+            ]
+        ]
+    },
+    {
+        "id": "4002428cebcdc6b2",
+        "type": "switch",
+        "z": "5fffdd7bd03e62e5",
+        "name": "KLINGEL",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/DoorAssistant/Klingel/Press",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 620,
+        "y": 320,
+        "wires": [
+            [
+                "e8f29149066f87f4"
+            ],
+            [
+                "9c60fdbfb32214d1"
+            ]
+        ]
+    },
+    {
+        "id": "9c60fdbfb32214d1",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "CATCHALL",
+        "func": "node.warn(\"Received Invalid payload ( \" + msg.payload + \") at topic \" + msg.topic);\nreturn null;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 380,
+        "wires": [],
+        "icon": "font-awesome/fa-exclamation-triangle"
+    },
+    {
+        "id": "85b25059f6f16227",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "CATCHALL",
+        "func": "node.warn(\"Received Invalid payload ( \" + msg.payload + \") at topic \" + msg.topic);\nreturn null;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 780,
+        "wires": [],
+        "icon": "font-awesome/fa-warning"
+    },
+    {
+        "id": "8226624aabd5304c",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "CATCHALL",
+        "func": "node.warn(\"Received Invalid payload ( \" + msg.payload + \") at topic \" + msg.topic);\nreturn null;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1080,
+        "wires": [],
+        "icon": "font-awesome/fa-warning"
+    },
+    {
+        "id": "7890b33b97cbd6a5",
+        "type": "speakerpi-output",
+        "z": "5fffdd7bd03e62e5",
+        "choose": "givenfile",
+        "filename": "/home/pi/police_s.wav",
+        "channels": "1",
+        "bitdepth": "16",
+        "samplerate": "22050",
+        "name": "SPEAKER",
+        "x": 1250,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d99a3159b10648f",
+        "type": "rpi-gpio in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "GPIO DOOR DETECTOR",
+        "pin": "18",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 210,
+        "y": 1580,
+        "wires": [
+            [
+                "3ee83696547bb690"
+            ]
+        ]
+    },
+    {
+        "id": "3ee83696547bb690",
+        "type": "debug",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "e8f29149066f87f4",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Enable-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"klingelEnableSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 260,
+        "wires": [
+            [
+                "29bba17caca2abd1",
+                "20bc9963bd38cecd",
+                "3d6014238e34a9f7"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "29bba17caca2abd1",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Audio-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"klingelAudioSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 100,
+        "wires": [
+            [
+                "7890b33b97cbd6a5"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "20bc9963bd38cecd",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Messenger-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"klingelMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 240,
+        "wires": [
+            [
+                "8a392a872272720a"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "3d6014238e34a9f7",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "History-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"klingelHistorySwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1480,
+        "y": 420,
+        "wires": [
+            [
+                "3ccb61d424dc9016"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "8a392a872272720a",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "func": "node.warn(\"Received Klingel Messenger Call\")\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1960,
+        "y": 240,
+        "wires": [],
+        "icon": "font-awesome/fa-unlink"
+    },
+    {
+        "id": "3ccb61d424dc9016",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "func": "node.warn(\"Received Klingel History Call\")\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1960,
+        "y": 420,
+        "wires": [],
+        "icon": "font-awesome/fa-unlink"
+    },
+    {
+        "id": "6feb46805eac59c9",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Enable-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorEnableSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 680,
+        "wires": [
+            [
+                "f734139f51182b01",
+                "a8f13040b0acdf98",
+                "0f2dc082c6d61e52"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "f734139f51182b01",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Audio-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorAudioSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 560,
+        "wires": [
+            [
+                "beb2781250a79020"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "a8f13040b0acdf98",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Messenger-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 680,
+        "wires": [
+            [
+                "61067648c92aba1c"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "0f2dc082c6d61e52",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "History-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorHistorySwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 780,
+        "wires": [
+            [
+                "e3e8cf52c16925cd"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "beb2781250a79020",
+        "type": "speakerpi-output",
+        "z": "5fffdd7bd03e62e5",
+        "choose": "givenfile",
+        "filename": "/home/pi/police_s.wav",
+        "channels": "1",
+        "bitdepth": "16",
+        "samplerate": "22050",
+        "name": "SPEAKER",
+        "x": 1530,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61067648c92aba1c",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "func": "node.warn(\"Received Detector Messenger Call\")\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 680,
+        "wires": [],
+        "icon": "font-awesome/fa-unlink"
+    },
+    {
+        "id": "e3e8cf52c16925cd",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "func": "node.warn(\"Received Detector History Call\")\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 780,
+        "wires": [],
+        "icon": "font-awesome/fa-unlink"
     },
     {
         "id": "f6471c0a62158f36",
@@ -478,7 +957,7 @@
         "type": "ui_group",
         "name": "Display",
         "tab": "8c3a0fe6168eb6b2",
-        "order": 4,
+        "order": 5,
         "disp": true,
         "width": "12",
         "collapse": false
@@ -512,6 +991,31 @@
         "disp": false,
         "width": "18",
         "collapse": false
+    },
+    {
+        "id": "6bccc9f8e5419fdf",
+        "type": "mqtt-broker",
+        "name": "localhost MQTT broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "8c3a0fe6168eb6b2",
