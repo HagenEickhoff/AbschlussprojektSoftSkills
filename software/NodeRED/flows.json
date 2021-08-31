@@ -7,6 +7,233 @@
         "info": ""
     },
     {
+        "id": "372db699749e8d7d",
+        "type": "tab",
+        "label": "Debug",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "790abfecdef18970",
+        "type": "tab",
+        "label": "Configuration",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8c3a0fe6168eb6b2",
+        "type": "ui_tab",
+        "name": "Konfiguration",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8e5d5e3048f6984c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#2260c3",
+                "baseFont": "Georgia,Georgia,serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#2260c3",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#2260c3",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#5188e1",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#2260c3",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Georgia,Georgia,serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "DoorAssistant Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD.MM.YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 3,
+                "py": 3
+            }
+        }
+    },
+    {
+        "id": "f6471c0a62158f36",
+        "type": "ui_group",
+        "name": "Klingel",
+        "tab": "8c3a0fe6168eb6b2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "89daac510a2e1762",
+        "type": "ui_group",
+        "name": "Display",
+        "tab": "8c3a0fe6168eb6b2",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "08607024c7e3ecad",
+        "type": "ui_group",
+        "name": "Detector - Briefkasten",
+        "tab": "8c3a0fe6168eb6b2",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4f1ab8464bc5464e",
+        "type": "ui_group",
+        "name": "Detector - Haustür",
+        "tab": "8c3a0fe6168eb6b2",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "71a8f076f9291d03",
+        "type": "ui_tab",
+        "name": "Historie",
+        "icon": "grid_on",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "242479a4a77e0476",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "71a8f076f9291d03",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "6bccc9f8e5419fdf",
+        "type": "mqtt-broker",
+        "name": "localhost MQTT broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dfb9b9ca7a860aee",
+        "type": "telegram bot",
+        "botname": "UOLSoftSkills_bot",
+        "usernames": "HagenTest",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
         "id": "3d5d944f5b3b1c0c",
         "type": "ui_switch",
         "z": "5fffdd7bd03e62e5",
@@ -480,6 +707,147 @@
         ]
     },
     {
+        "id": "9c67be281362cd0c",
+        "type": "mqtt out",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "topic": "/DoorAssistant/Klingel/Press",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 430,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "eeb7047aa53bb681",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Pressed",
+        "payloadType": "str",
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "9c67be281362cd0c"
+            ]
+        ]
+    },
+    {
+        "id": "f76c6b19923d9eb1",
+        "type": "mqtt out",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "topic": "/DoorAssistant/Detector/Input",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 420,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "925bb2e78820c2c0",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "MQTT IN 2",
+        "payloadType": "str",
+        "x": 200,
+        "y": 760,
+        "wires": [
+            [
+                "f76c6b19923d9eb1"
+            ]
+        ]
+    },
+    {
+        "id": "569ea312758d097c",
+        "type": "mqtt out",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "topic": "/DoorAssistant/Klingel/Settin",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 420,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "e8504b3da6850cc4",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "MQTT IN 3",
+        "payloadType": "str",
+        "x": 200,
+        "y": 860,
+        "wires": [
+            [
+                "569ea312758d097c"
+            ]
+        ]
+    },
+    {
         "id": "08d5d3b223e1af86",
         "type": "mqtt in",
         "z": "5fffdd7bd03e62e5",
@@ -894,6 +1262,120 @@
         "icon": "font-awesome/fa-unlink"
     },
     {
+        "id": "3b14f17a82437726",
+        "type": "telegram sender",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f85a18e385831281",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "egal",
+        "payload": "{\"chatId\":\"1955069403\",\"type\":\"message\",\"content\":\"Hallo Welt\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "3b14f17a82437726",
+                "8c374552b346e184"
+            ]
+        ]
+    },
+    {
+        "id": "8c374552b346e184",
+        "type": "debug",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2d3659ed7dc354d4",
+        "type": "telegram receiver",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "dacc69f07692c3ec",
+                "1af6dec783b6d9b6"
+            ],
+            [
+                "8c374552b346e184"
+            ]
+        ]
+    },
+    {
+        "id": "dacc69f07692c3ec",
+        "type": "function",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "func": "if(msg.payload.content === \"Ping\"){\n    msg.payload.content = \"Pong\";\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 480,
+        "wires": [
+            [
+                "3b14f17a82437726"
+            ]
+        ]
+    },
+    {
+        "id": "1af6dec783b6d9b6",
+        "type": "function",
+        "z": "372db699749e8d7d",
+        "name": "GET_ID",
+        "func": "if(msg.payload.content === \"/start\"){\n    node.warn(\"ChatID: \" + msg.payload.chatId);\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
         "id": "1b176c2177ffe4ba",
         "type": "telegram sender",
         "z": "5fffdd7bd03e62e5",
@@ -1101,118 +1583,64 @@
         ]
     },
     {
-        "id": "f6471c0a62158f36",
-        "type": "ui_group",
-        "name": "Klingel",
-        "tab": "8c3a0fe6168eb6b2",
-        "order": 1,
-        "disp": true,
+        "id": "b6cdac6183b572d4",
+        "type": "ui_slider",
+        "z": "790abfecdef18970",
+        "name": "",
+        "label": "Klingel Intervall",
+        "tooltip": "Zeit, die zwischen zwei mal Klingeln mindestens vergehen muss",
+        "group": "f6471c0a62158f36",
+        "order": 4,
         "width": "6",
-        "collapse": false
+        "height": "1",
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "str",
+        "min": 0,
+        "max": "60",
+        "step": 1,
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "e5396a270c3c2297"
+            ]
+        ]
     },
     {
-        "id": "89daac510a2e1762",
-        "type": "ui_group",
-        "name": "Display",
-        "tab": "8c3a0fe6168eb6b2",
-        "order": 5,
-        "disp": true,
-        "width": "12",
-        "collapse": false
+        "id": "e5396a270c3c2297",
+        "type": "mqtt out",
+        "z": "790abfecdef18970",
+        "name": "Update Klingel MinInterval",
+        "topic": "/DoorAssistant/Klingel/Settings/MinInterval",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 440,
+        "y": 100,
+        "wires": []
     },
     {
-        "id": "4f1ab8464bc5464e",
-        "type": "ui_group",
-        "name": "Detector - Haustür",
-        "tab": "8c3a0fe6168eb6b2",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "08607024c7e3ecad",
-        "type": "ui_group",
-        "name": "Detector - Briefkasten",
-        "tab": "8c3a0fe6168eb6b2",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "242479a4a77e0476",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "71a8f076f9291d03",
-        "order": 1,
-        "disp": false,
-        "width": "18",
-        "collapse": false
-    },
-    {
-        "id": "6bccc9f8e5419fdf",
-        "type": "mqtt-broker",
-        "name": "localhost MQTT broker",
-        "broker": "localhost",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "sessionExpiry": ""
-    },
-    {
-        "id": "dfb9b9ca7a860aee",
-        "type": "telegram bot",
-        "botname": "UOLSoftSkills_bot",
-        "usernames": "HagenTest",
-        "chatids": "",
-        "baseapiurl": "",
-        "updatemode": "polling",
-        "pollinterval": "300",
-        "usesocks": false,
-        "sockshost": "",
-        "socksport": "6667",
-        "socksusername": "anonymous",
-        "sockspassword": "",
-        "bothost": "",
-        "botpath": "",
-        "localbotport": "8443",
-        "publicbotport": "8443",
-        "privatekey": "",
-        "certificate": "",
-        "useselfsignedcertificate": false,
-        "sslterminated": false,
-        "verboselogging": false
-    },
-    {
-        "id": "8c3a0fe6168eb6b2",
-        "type": "ui_tab",
-        "name": "Konfiguration",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "71a8f076f9291d03",
-        "type": "ui_tab",
-        "name": "Historie",
-        "icon": "grid_on",
-        "disabled": false,
-        "hidden": false
+        "id": "d3c99a2fb0759d6e",
+        "type": "mqtt in",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 440,
+        "y": 160,
+        "wires": [
+            []
+        ]
     }
 ]
