@@ -228,8 +228,8 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 810,
-        "y": 1540,
+        "x": 1130,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -259,8 +259,8 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 830,
-        "y": 1580,
+        "x": 1150,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -290,8 +290,8 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 820,
-        "y": 1620,
+        "x": 1140,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -321,8 +321,8 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 820,
-        "y": 1500,
+        "x": 1140,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -503,7 +503,7 @@
         "id": "067fe98f6691059c",
         "type": "switch",
         "z": "5fffdd7bd03e62e5",
-        "name": "",
+        "name": "topic-SWITCH",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -524,7 +524,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 350,
+        "x": 360,
         "y": 740,
         "wires": [
             [
@@ -643,8 +643,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1080,
+        "x": 610,
+        "y": 800,
         "wires": [],
         "icon": "font-awesome/fa-warning"
     },
@@ -673,30 +673,13 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 210,
-        "y": 1580,
+        "x": 170,
+        "y": 1060,
         "wires": [
             [
-                "3ee83696547bb690"
+                "af782fe8082faa51"
             ]
         ]
-    },
-    {
-        "id": "3ee83696547bb690",
-        "type": "debug",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 1580,
-        "wires": []
     },
     {
         "id": "e8f29149066f87f4",
@@ -755,7 +738,7 @@
         "y": 240,
         "wires": [
             [
-                "8a392a872272720a"
+                "cc83344250eb5a65"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -779,22 +762,6 @@
             ]
         ],
         "icon": "font-awesome/fa-question"
-    },
-    {
-        "id": "8a392a872272720a",
-        "type": "function",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "func": "node.warn(\"Received Klingel Messenger Call\")\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1960,
-        "y": 240,
-        "wires": [],
-        "icon": "font-awesome/fa-unlink"
     },
     {
         "id": "3ccb61d424dc9016",
@@ -869,7 +836,7 @@
         "y": 680,
         "wires": [
             [
-                "61067648c92aba1c"
+                "02abb73efe87f341"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -911,22 +878,6 @@
         ]
     },
     {
-        "id": "61067648c92aba1c",
-        "type": "function",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "func": "node.warn(\"Received Detector Messenger Call\")\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 680,
-        "wires": [],
-        "icon": "font-awesome/fa-unlink"
-    },
-    {
         "id": "e3e8cf52c16925cd",
         "type": "function",
         "z": "5fffdd7bd03e62e5",
@@ -941,6 +892,213 @@
         "y": 780,
         "wires": [],
         "icon": "font-awesome/fa-unlink"
+    },
+    {
+        "id": "1b176c2177ffe4ba",
+        "type": "telegram sender",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1690,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc83344250eb5a65",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"chatId\":1955069403,\"type\":\"message\",\"content\":\"Jemand hat geklingelt!\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1520,
+        "y": 240,
+        "wires": [
+            [
+                "1b176c2177ffe4ba"
+            ]
+        ]
+    },
+    {
+        "id": "3adb7bdeef37c2df",
+        "type": "telegram sender",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1950,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02abb73efe87f341",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"chatId\":1955069403,\"type\":\"message\",\"content\":\"Sie haben Post!\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1800,
+        "y": 680,
+        "wires": [
+            [
+                "3adb7bdeef37c2df"
+            ]
+        ]
+    },
+    {
+        "id": "51f8aba9f0c8c98e",
+        "type": "comment",
+        "z": "5fffdd7bd03e62e5",
+        "name": "TODOS",
+        "info": "- Make Telegram ChatId in change nodes dynamic\n- Improve Bot Description etc.\n- Centralize Configuration nodes somewhere",
+        "x": 190,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f036d8da8d94fd18",
+        "type": "inject",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "pi/18",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 130,
+        "y": 960,
+        "wires": [
+            [
+                "af782fe8082faa51"
+            ]
+        ]
+    },
+    {
+        "id": "984da7dbce3b0972",
+        "type": "inject",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "pi/18",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "af782fe8082faa51"
+            ]
+        ]
+    },
+    {
+        "id": "af782fe8082faa51",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "DetectChange",
+        "func": "if(msg.payload === context.get(\"lastInput\")){\n    //do nothing\n}else{\n    //if(Date.now() - context.get(\"lastChange\") > 5000){//detect change every 5 seconds\n        context.set(\"lastInput\", msg.payload);//change 1->0, 0->1\n        //context.set(\"lastChange\", Date.now());\n        return msg;//pass on any message\n    //}\n}\nreturn null;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"lastInput\", 0);\n//context.set(\"lastChange\", 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1060,
+        "wires": [
+            [
+                "4a08d0701f1e0df0"
+            ]
+        ]
+    },
+    {
+        "id": "4a08d0701f1e0df0",
+        "type": "switch",
+        "z": "5fffdd7bd03e62e5",
+        "name": "status-SWITCH",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 670,
+        "y": 1060,
+        "wires": [
+            [],
+            [],
+            []
+        ],
+        "outputLabels": [
+            "0",
+            "1",
+            "ERROR"
+        ]
     },
     {
         "id": "f6471c0a62158f36",
@@ -1016,6 +1174,30 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
+    },
+    {
+        "id": "dfb9b9ca7a860aee",
+        "type": "telegram bot",
+        "botname": "UOLSoftSkills_bot",
+        "usernames": "HagenTest",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     },
     {
         "id": "8c3a0fe6168eb6b2",
