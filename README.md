@@ -8,7 +8,7 @@ Ausführliche Dokumentation im [WordPress-Blog](https://wp.uni-oldenburg.de/soft
 ### Aufbau des Repositories
 - /hardware
     - /3d_models
-        - CAD-Modelle für Cases für RasPi sowie beide Microcontroller
+        - CAD-Modelle (Klingel-Case, RasPi-Case und Briefkasten-Case) für Cases für RasPi sowie beide Microcontroller
 - /software
   - /NodeRED
     - Flow(s) für NodeRED
