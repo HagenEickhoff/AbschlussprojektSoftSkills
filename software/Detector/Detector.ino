@@ -3,18 +3,18 @@
 
 // MQTT Topics, WiFi Config
 //--------------------------------
-const char* MQTT_TOPIC_DETECTOR = "YYYYYYY";
-const char* MQTT_TOPIC_SETTINGS = "YYYYYYYY";
-const char* SSID = "XXXXXXXXXX";
-const char* WIFI_PASSWORD = "XXXXXXXXXX";
+const char* MQTT_TOPIC_ACTION = "/DoorAssistant/Briefkasten/Detected";
+const char* MQTT_TOPIC_SETTINGS = "/DoorAssistant/Briefkasten/Settings/MinInterval";
+const char* SSID = "BriefkastenDetector WiFi Setup";
+const char* WIFI_PASSWORD = "123";
 //--------------------------------
 
 // MQTT-Broker
 //--------------------------------
-const char* MQTT_SERVER = "localhost";
-const int MQTT_PORT = 1883;
-//const char* MQTT_USER = "XXX";
-//const char* MQTT_PASSWORD = "XXX";
+char* MQTT_SERVER = "";
+char* MQTT_PORT = "1883";
+char* MQTT_USER = "";
+char* MQTT_PASSWORD = "";
 //--------------------------------
 
 WiFiClient espClient;
