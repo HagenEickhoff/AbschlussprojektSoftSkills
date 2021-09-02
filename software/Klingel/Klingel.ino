@@ -1,6 +1,8 @@
+#include <FS.h> 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <WiFiManager.h>
+#include <ArduinoJson.h> //version 5.13.5
 
 // MQTT Topics, WiFi Config
 //--------------------------------
@@ -11,11 +13,12 @@ const char* WIFI_PASSWORD = "123";
 //--------------------------------
 
 // MQTT-Broker (data inserted via setup_wifi())
+// no empty initiliazitions ( = "" ), otherwise they somehow overwrite data loaded from the config *after* said data was loaded...
 //--------------------------------
-char* MQTT_SERVER = "";
+char* MQTT_SERVER = "192.168."; 
 char* MQTT_PORT = "1883"; //changed to char* for simplicity, consider returning to int
-char* MQTT_USER = "";
-char* MQTT_PASSWORD = "";
+char* MQTT_USER = "user (optional)";
+char* MQTT_PASSWORD = "user password (optional)";
 //--------------------------------
 
 WiFiClient espClient;
@@ -28,6 +31,7 @@ void setup_wifi()
 {
   delay(10);
   randomSeed(micros());
+  loadMQTTParametersFromFS();
 
   WiFiManager wifiManager;
 
@@ -54,6 +58,8 @@ void setup_wifi()
   MQTT_USER = strdup(param_mqtt_user.getValue());
   MQTT_PASSWORD = strdup(param_mqtt_password.getValue());
   
+  saveMQTTParametersToFS();
+  
   //DEBUG
   Serial.println("RECEIVED PARAMS:");
   Serial.print("SERVER:");
@@ -71,13 +77,75 @@ void setup_wifi()
   Serial.println(WiFi.localIP());
 }
 
+// write MQTT configuration to filesystgem in .json
+void saveMQTTParametersToFS()
+{
+  DynamicJsonBuffer jsonBuffer;
+  JsonObject &json = jsonBuffer.createObject();
+  json["mqtt_server"] = MQTT_SERVER;
+  json["mqtt_port"] = MQTT_PORT;
+  json["mqtt_user"] = MQTT_USER;
+  json["mqtt_pass"] = MQTT_PASSWORD;
+
+  File configFile = SPIFFS.open("/config.json", "w");
+  if (!configFile)
+  {
+    Serial.println("failed to open config file for writing");
+  }
+
+  json.printTo(Serial);
+  json.printTo(configFile);
+  configFile.close();
+}
+
+// read MQTT configuration from filesystem
+void loadMQTTParametersFromFS()
+{
+  if (SPIFFS.begin())
+  {
+    Serial.println("mounted file system");
+    if (SPIFFS.exists("/config.json"))
+    {
+      //file exists, reading and loading
+      Serial.println("reading config file");
+      File configFile = SPIFFS.open("/config.json", "r");
+      if (configFile)
+      {
+        Serial.println("opened config file");
+        size_t size = configFile.size();
+        // Allocate a buffer to store contents of the file.
+        std::unique_ptr<char[]> buf(new char[size]);
+
+        configFile.readBytes(buf.get(), size);
+        DynamicJsonBuffer jsonBuffer;
+        JsonObject &json = jsonBuffer.parseObject(buf.get());
+        json.printTo(Serial);
+        if (json.success())
+        {
+          Serial.println("\nparsed json");
+          strcpy(MQTT_SERVER, json["mqtt_server"]);
+          Serial.print("Loaded Server: "); Serial.println(MQTT_SERVER);
+          Serial.print("JSON Server: "); Serial.println(String(json["mqtt_server"]));
+          strcpy(MQTT_PORT, json["mqtt_port"]);
+          strcpy(MQTT_USER, json["mqtt_user"]);
+          strcpy(MQTT_PASSWORD, json["mqtt_pass"]);
+        }
+        else
+        {
+          Serial.println("failed to load json config");
+        }
+      }
+    }
+  }
+  else
+  {
+    Serial.println("failed to mount FS");
+  }
+}
+
 // callback method for settings changes
 void settingsCallback(char *topic, byte *payload, unsigned int length)
 {
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
-  
   if (strcmp(topic, MQTT_TOPIC_SETTINGS) == 0)
   {
     char receivedPayload[length];
