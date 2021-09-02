@@ -2,7 +2,7 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <WiFiManager.h>
-#include <ArduinoJson.h> //version 5.13.5
+#include <ArduinoJson.h>
 
 // MQTT Topics, WiFi Config
 //--------------------------------
@@ -80,22 +80,23 @@ void setup_wifi()
 // write MQTT configuration to filesystgem in .json
 void saveMQTTParametersToFS()
 {
-  DynamicJsonBuffer jsonBuffer;
-  JsonObject &json = jsonBuffer.createObject();
-  json["mqtt_server"] = MQTT_SERVER;
-  json["mqtt_port"] = MQTT_PORT;
-  json["mqtt_user"] = MQTT_USER;
-  json["mqtt_pass"] = MQTT_PASSWORD;
-
+  Serial.println("saving config");
+  DynamicJsonDocument doc(256);
+  doc["mqtt_server"] = MQTT_SERVER;
+  doc["mqtt_port"] = MQTT_PORT;
+  doc["mqtt_user"] = MQTT_USER;
+  doc["mqtt_pass"] = MQTT_PASSWORD;
+  
   File configFile = SPIFFS.open("/config.json", "w");
   if (!configFile)
   {
     Serial.println("failed to open config file for writing");
+  }else{
+    serializeJson(doc, Serial);
+    serializeJson(doc, configFile);
+    configFile.flush();
+    configFile.close();
   }
-
-  json.printTo(Serial);
-  json.printTo(configFile);
-  configFile.close();
 }
 
 // read MQTT configuration from filesystem
@@ -106,34 +107,26 @@ void loadMQTTParametersFromFS()
     Serial.println("mounted file system");
     if (SPIFFS.exists("/config.json"))
     {
-      //file exists, reading and loading
       Serial.println("reading config file");
       File configFile = SPIFFS.open("/config.json", "r");
       if (configFile)
       {
         Serial.println("opened config file");
-        size_t size = configFile.size();
-        // Allocate a buffer to store contents of the file.
-        std::unique_ptr<char[]> buf(new char[size]);
+        DynamicJsonDocument doc(256);
+        DeserializationError error = deserializeJson(doc, configFile);
+        if (error)
+          return;
 
-        configFile.readBytes(buf.get(), size);
-        DynamicJsonBuffer jsonBuffer;
-        JsonObject &json = jsonBuffer.parseObject(buf.get());
-        json.printTo(Serial);
-        if (json.success())
-        {
-          Serial.println("\nparsed json");
-          strcpy(MQTT_SERVER, json["mqtt_server"]);
-          Serial.print("Loaded Server: "); Serial.println(MQTT_SERVER);
-          Serial.print("JSON Server: "); Serial.println(String(json["mqtt_server"]));
-          strcpy(MQTT_PORT, json["mqtt_port"]);
-          strcpy(MQTT_USER, json["mqtt_user"]);
-          strcpy(MQTT_PASSWORD, json["mqtt_pass"]);
-        }
-        else
-        {
-          Serial.println("failed to load json config");
-        }
+        Serial.println("\nparsed json!");
+        strcpy(MQTT_SERVER, doc["mqtt_server"]);
+        strcpy(MQTT_PORT, doc["mqtt_port"]);
+        strcpy(MQTT_USER, doc["mqtt_user"]);
+        strcpy(MQTT_PASSWORD, doc["mqtt_pass"]);
+        
+        const char* srvr = doc["mqtt_server"];
+        Serial.print("doc server"); Serial.println(srvr);        
+        Serial.print("local server"); Serial.println(MQTT_SERVER);
+        serializeJson(doc, Serial);
       }
     }
   }
