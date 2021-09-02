@@ -4,6 +4,8 @@
 #include <WiFiManager.h>
 #include <ArduinoJson.h>
 
+#define SWITCH D5
+
 // MQTT Topics, WiFi Config
 //--------------------------------
 const char* MQTT_TOPIC_ACTION = "/DoorAssistant/Klingel/Press";
@@ -188,25 +190,28 @@ void setup()
 
   mqtt_client.setServer(MQTT_SERVER, atoi(MQTT_PORT));
   mqtt_client.setCallback(settingsCallback);
+
+  pinMode(SWITCH, INPUT);
 }
 
 void loop()
 {
-
   if (!mqtt_client.connected())
   {
     reconnect();
   }
+
   mqtt_client.loop();
 
   if (millis() - lastPressTime > MIN_PRESS_INTERVAL)
   {
-    lastPressTime = millis();
-
-    // TODO: Check if button pressed, if so: publish any message to MQTT_TOPIC_KLINGEL
-    String val_str = "Pressed";
-    char val_buff[val_str.length() + 1];
-    val_str.toCharArray(val_buff, val_str.length() + 1);
-    mqtt_client.publish(MQTT_TOPIC_ACTION, val_buff);
+    if(digitalRead(SWITCH) == 1){
+      //pressed
+      lastPressTime = millis();
+      String val_str = "Pressed";// any value will do
+      char val_buff[val_str.length() + 1];
+      val_str.toCharArray(val_buff, val_str.length() + 1);
+      mqtt_client.publish(MQTT_TOPIC_ACTION, val_buff);
+    }
   }
 }
