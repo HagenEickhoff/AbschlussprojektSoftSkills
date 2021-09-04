@@ -7,16 +7,23 @@
         "info": ""
     },
     {
+        "id": "790abfecdef18970",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "Contains all Dashboard nodes as well as the actions taken when they are updated"
+    },
+    {
+        "id": "ba5dcfac39603564",
+        "type": "tab",
+        "label": "Configuration",
+        "disabled": false,
+        "info": "Contains all nodes that need to be configured by the enduser."
+    },
+    {
         "id": "372db699749e8d7d",
         "type": "tab",
         "label": "Debug",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "790abfecdef18970",
-        "type": "tab",
-        "label": "Configuration",
         "disabled": false,
         "info": ""
     },
@@ -133,17 +140,7 @@
         "tab": "8c3a0fe6168eb6b2",
         "order": 1,
         "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "89daac510a2e1762",
-        "type": "ui_group",
-        "name": "Display",
-        "tab": "8c3a0fe6168eb6b2",
-        "order": 5,
-        "disp": true,
-        "width": "12",
+        "width": "9",
         "collapse": false
     },
     {
@@ -234,477 +231,14 @@
         "verboselogging": false
     },
     {
-        "id": "3d5d944f5b3b1c0c",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "KlingelAudioSwitch",
-        "label": "Audio-Signal",
-        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
+        "id": "cc5f1e88b5c6cfeb",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
         "group": "f6471c0a62158f36",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "klingelAudioSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "notifications",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "notifications_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 870,
-        "y": 40,
-        "wires": [
-            [
-                "29bba17caca2abd1"
-            ]
-        ]
-    },
-    {
-        "id": "2fbf4487aff65037",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "KlingelMessengerSwitch",
-        "label": "Messenger-Nachricht",
-        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
-        "group": "f6471c0a62158f36",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "klingelMessengerSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "chat",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "chat_bubble_outline",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1090,
-        "y": 160,
-        "wires": [
-            [
-                "20bc9963bd38cecd"
-            ]
-        ]
-    },
-    {
-        "id": "143f5aab61d50213",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "KlingelHistorieSwitch",
-        "label": "Schreibe in Historie",
-        "tooltip": "Schreibe Klingeln in Historientabelle",
-        "group": "f6471c0a62158f36",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "klingelHistorySwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "grid_on",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "grid_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1220,
-        "y": 300,
-        "wires": [
-            [
-                "3d6014238e34a9f7"
-            ]
-        ]
-    },
-    {
-        "id": "973f796e84a33d66",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "KlingelEnableSwitch",
-        "label": "Aktiv",
-        "tooltip": "Aktiviere oder deaktivere ALLE Klingel-Funktionen",
-        "group": "f6471c0a62158f36",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "klingelEnableSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "settings_power",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "settings_power",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 580,
-        "y": 200,
-        "wires": [
-            [
-                "e8f29149066f87f4"
-            ]
-        ]
-    },
-    {
-        "id": "fccad90bd94b99c9",
-        "type": "comment",
-        "z": "5fffdd7bd03e62e5",
-        "name": "Icon Location",
-        "info": "Icons von hier: https://www.angularjswiki.com/de/angular/angular-material-icons-list-mat-icon-list/",
-        "x": 1850,
-        "y": 1520,
-        "wires": []
-    },
-    {
-        "id": "aca583a6f636c446",
-        "type": "ui_slider",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DisplayEnableLengthSlider",
-        "label": "Display Nachrichten Anzeige Dauer",
-        "tooltip": "Wie lange das Display der Klingel angeschaltet sein soll, wenn Nachrichten angezeigt werden (Sekunden)",
-        "group": "89daac510a2e1762",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "topic",
-        "topicType": "msg",
-        "min": "20",
-        "max": "120",
-        "step": "5",
-        "x": 1860,
-        "y": 1620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3dca137f04c1e546",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DisplayEnableSwitch",
-        "label": "Display Aktiviert",
-        "tooltip": "Aktiviere oder Deaktiviere das gesamte Display",
-        "group": "89daac510a2e1762",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "settings_power",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "settings_power",
-        "offcolor": "RED",
-        "animate": true,
-        "x": 1840,
-        "y": 1660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "dbcb72ea2499425f",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DoorDetectorAudioSwitch",
-        "label": "Audio-Signal",
-        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
-        "group": "4f1ab8464bc5464e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "notifications",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "notifications_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1130,
-        "y": 1120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4cd31330b52b3137",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DoorDetectorMessengerSwitch",
-        "label": "Messenger-Nachricht",
-        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
-        "group": "4f1ab8464bc5464e",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "chat",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "chat_bubble_outline",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1150,
-        "y": 1160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9b16915562a81479",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DoorDetectorHistorieSwitch",
-        "label": "Schreibe in Historie",
-        "tooltip": "Schreibe Klingeln in Historientabelle",
-        "group": "4f1ab8464bc5464e",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "grid_on",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "grid_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1140,
-        "y": 1200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c4f6868c2c5fd238",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "DoorDetectorEnableSwitch",
-        "label": "Aktiv",
-        "tooltip": "Aktiviere oder deaktivere ALLE HaustürDetector-Funktionen",
-        "group": "4f1ab8464bc5464e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "settings_power",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "settings_power",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1140,
-        "y": 1080,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "68216fb4b645c9c9",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "BriefkastenDetectorAudioSwitch",
-        "label": "Audio-Signal",
-        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
-        "group": "08607024c7e3ecad",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "detectorAudioSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "notifications",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "notifications_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1050,
-        "y": 520,
-        "wires": [
-            [
-                "f734139f51182b01"
-            ]
-        ]
-    },
-    {
-        "id": "22a7059a1493c173",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "BriefkastenDetectorMessengerSwitch",
-        "label": "Messenger-Nachricht",
-        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
-        "group": "08607024c7e3ecad",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "detectorMessengerSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "chat",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "chat_bubble_outline",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1350,
-        "y": 640,
-        "wires": [
-            [
-                "a8f13040b0acdf98"
-            ]
-        ]
-    },
-    {
-        "id": "10805ae9a692204d",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "BriefkastenDetectorHistorieSwitch",
-        "label": "Schreibe in Historie",
-        "tooltip": "Schreibe Klingeln in Historientabelle",
-        "group": "08607024c7e3ecad",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "detectorHistorySwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "grid_on",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "grid_off",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 1080,
-        "y": 840,
-        "wires": [
-            [
-                "0f2dc082c6d61e52"
-            ]
-        ]
-    },
-    {
-        "id": "987d0d3373e37370",
-        "type": "ui_switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "BriefkastenDetectorEnableSwitch",
-        "label": "Aktiv",
-        "tooltip": "Aktiviere oder deaktivere ALLE BriefkastenDetector-Funktionen",
-        "group": "08607024c7e3ecad",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "detectorEnableSwitch",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "settings_power",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "settings_power",
-        "offcolor": "RED",
-        "animate": false,
-        "x": 660,
-        "y": 620,
-        "wires": [
-            [
-                "6feb46805eac59c9"
-            ]
-        ]
-    },
-    {
-        "id": "93e67ab1ccab8516",
-        "type": "ui_template",
-        "z": "5fffdd7bd03e62e5",
-        "group": "242479a4a77e0476",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "TODO\n<div ng-bind-html=\"msg.payload\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 1840,
-        "y": 1560,
-        "wires": [
-            []
-        ]
+        "order": 6,
+        "width": "9",
+        "height": 1
     },
     {
         "id": "9c67be281362cd0c",
@@ -805,7 +339,7 @@
         "type": "mqtt out",
         "z": "372db699749e8d7d",
         "name": "",
-        "topic": "/DoorAssistant/Klingel/Settin",
+        "topic": "/DoorAssistant/Klin22gel/Settin",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -814,7 +348,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 420,
+        "x": 430,
         "y": 860,
         "wires": []
     },
@@ -860,7 +394,7 @@
         "rap": true,
         "rh": 0,
         "x": 150,
-        "y": 740,
+        "y": 400,
         "wires": [
             [
                 "067fe98f6691059c"
@@ -882,7 +416,7 @@
             },
             {
                 "t": "cont",
-                "v": "/DoorAssistant/Detector",
+                "v": "/DoorAssistant/Briefkasten",
                 "vt": "str"
             },
             {
@@ -893,7 +427,7 @@
         "repair": false,
         "outputs": 3,
         "x": 360,
-        "y": 740,
+        "y": 400,
         "wires": [
             [
                 "4002428cebcdc6b2"
@@ -910,13 +444,13 @@
         "id": "5ad77385a7cb7f0e",
         "type": "switch",
         "z": "5fffdd7bd03e62e5",
-        "name": "DETECTOR",
+        "name": "BRIEFKASTEN",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "cont",
-                "v": "/DoorAssistant/Detector/Input",
+                "v": "/DoorAssistant/Briefkasten/Detected",
                 "vt": "str"
             },
             {
@@ -926,8 +460,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 610,
-        "y": 680,
+        "x": 600,
+        "y": 620,
         "wires": [
             [
                 "6feb46805eac59c9"
@@ -957,8 +491,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 620,
-        "y": 320,
+        "x": 600,
+        "y": 220,
         "wires": [
             [
                 "e8f29149066f87f4"
@@ -979,8 +513,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 380,
+        "x": 790,
+        "y": 360,
         "wires": [],
         "icon": "font-awesome/fa-exclamation-triangle"
     },
@@ -995,8 +529,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 780,
+        "x": 830,
+        "y": 800,
         "wires": [],
         "icon": "font-awesome/fa-warning"
     },
@@ -1011,8 +545,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 800,
+        "x": 550,
+        "y": 760,
         "wires": [],
         "icon": "font-awesome/fa-warning"
     },
@@ -1026,8 +560,8 @@
         "bitdepth": "16",
         "samplerate": "22050",
         "name": "SPEAKER",
-        "x": 1250,
-        "y": 100,
+        "x": 1330,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1041,8 +575,8 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 170,
-        "y": 1060,
+        "x": 150,
+        "y": 1040,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -1060,8 +594,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 260,
+        "x": 800,
+        "y": 160,
         "wires": [
             [
                 "29bba17caca2abd1",
@@ -1082,8 +616,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1070,
-        "y": 100,
+        "x": 1150,
+        "y": 80,
         "wires": [
             [
                 "7890b33b97cbd6a5"
@@ -1102,8 +636,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1370,
-        "y": 240,
+        "x": 1170,
+        "y": 160,
         "wires": [
             [
                 "cc83344250eb5a65"
@@ -1122,8 +656,8 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1480,
-        "y": 420,
+        "x": 1160,
+        "y": 220,
         "wires": [
             [
                 "3ccb61d424dc9016"
@@ -1143,7 +677,7 @@
         "finalize": "",
         "libs": [],
         "x": 1960,
-        "y": 420,
+        "y": 220,
         "wires": [],
         "icon": "font-awesome/fa-unlink"
     },
@@ -1152,14 +686,14 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "Enable-GATE",
-        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorEnableSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"briefkastenEnableSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 680,
+        "x": 840,
+        "y": 600,
         "wires": [
             [
                 "f734139f51182b01",
@@ -1174,14 +708,14 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "Audio-GATE",
-        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorAudioSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"briefkastenAudioSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1290,
-        "y": 560,
+        "x": 1150,
+        "y": 480,
         "wires": [
             [
                 "beb2781250a79020"
@@ -1194,14 +728,14 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "Messenger-GATE",
-        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"briefkastenMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1650,
-        "y": 680,
+        "x": 1170,
+        "y": 600,
         "wires": [
             [
                 "02abb73efe87f341"
@@ -1214,14 +748,14 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "History-GATE",
-        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"detectorHistorySwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"briefkastenHistorySwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1360,
-        "y": 780,
+        "x": 1160,
+        "y": 680,
         "wires": [
             [
                 "e3e8cf52c16925cd"
@@ -1239,8 +773,8 @@
         "bitdepth": "16",
         "samplerate": "22050",
         "name": "SPEAKER",
-        "x": 1530,
-        "y": 560,
+        "x": 1330,
+        "y": 480,
         "wires": [
             []
         ]
@@ -1256,8 +790,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1980,
-        "y": 780,
+        "x": 1960,
+        "y": 680,
         "wires": [],
         "icon": "font-awesome/fa-unlink"
     },
@@ -1383,8 +917,8 @@
         "bot": "dfb9b9ca7a860aee",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1690,
-        "y": 240,
+        "x": 1590,
+        "y": 160,
         "wires": [
             []
         ]
@@ -1408,8 +942,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1520,
-        "y": 240,
+        "x": 1380,
+        "y": 160,
         "wires": [
             [
                 "1b176c2177ffe4ba"
@@ -1424,8 +958,8 @@
         "bot": "dfb9b9ca7a860aee",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1950,
-        "y": 680,
+        "x": 1590,
+        "y": 600,
         "wires": [
             []
         ]
@@ -1449,8 +983,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1800,
-        "y": 680,
+        "x": 1380,
+        "y": 600,
         "wires": [
             [
                 "3adb7bdeef37c2df"
@@ -1463,15 +997,15 @@
         "z": "5fffdd7bd03e62e5",
         "name": "TODOS",
         "info": "- Make Telegram ChatId in change nodes dynamic\n- Improve Bot Description etc.\n- Centralize Configuration nodes somewhere",
-        "x": 190,
-        "y": 100,
+        "x": 170,
+        "y": 160,
         "wires": []
     },
     {
         "id": "f036d8da8d94fd18",
         "type": "inject",
         "z": "5fffdd7bd03e62e5",
-        "name": "",
+        "name": "DBG INSERT 0",
         "props": [
             {
                 "p": "payload"
@@ -1488,8 +1022,8 @@
         "topic": "pi/18",
         "payload": "0",
         "payloadType": "num",
-        "x": 130,
-        "y": 960,
+        "x": 140,
+        "y": 940,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -1500,7 +1034,7 @@
         "id": "984da7dbce3b0972",
         "type": "inject",
         "z": "5fffdd7bd03e62e5",
-        "name": "",
+        "name": "DBG INSERT 1",
         "props": [
             {
                 "p": "payload"
@@ -1517,8 +1051,8 @@
         "topic": "pi/18",
         "payload": "1",
         "payloadType": "num",
-        "x": 130,
-        "y": 1000,
+        "x": 140,
+        "y": 980,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -1536,50 +1070,12 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"lastInput\", 0);\n//context.set(\"lastChange\", 0);",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1060,
+        "x": 420,
+        "y": 1040,
         "wires": [
             [
-                "4a08d0701f1e0df0"
+                "43db9962062a2063"
             ]
-        ]
-    },
-    {
-        "id": "4a08d0701f1e0df0",
-        "type": "switch",
-        "z": "5fffdd7bd03e62e5",
-        "name": "status-SWITCH",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 670,
-        "y": 1060,
-        "wires": [
-            [],
-            [],
-            []
-        ],
-        "outputLabels": [
-            "0",
-            "1",
-            "ERROR"
         ]
     },
     {
@@ -1590,18 +1086,18 @@
         "label": "Klingel Intervall",
         "tooltip": "Zeit, die zwischen zwei mal Klingeln mindestens vergehen muss",
         "group": "f6471c0a62158f36",
-        "order": 4,
+        "order": 5,
         "width": "6",
         "height": "1",
         "passthru": false,
         "outs": "end",
         "topic": "topic",
         "topicType": "str",
-        "min": 0,
+        "min": "1",
         "max": "60",
         "step": 1,
-        "x": 150,
-        "y": 100,
+        "x": 180,
+        "y": 280,
         "wires": [
             [
                 "e5396a270c3c2297"
@@ -1622,25 +1118,1016 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 440,
+        "x": 410,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f05e1201011d7b9a",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "KlingelAudioSwitch",
+        "label": "Audio-Signal",
+        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
+        "group": "f6471c0a62158f36",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "klingelAudioSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "notifications",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "notifications_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "644018c6b599b222"
+            ]
+        ]
+    },
+    {
+        "id": "644018c6b599b222",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "klingelAudioSwitch",
+        "links": [
+            "5bd71f31abc73c65"
+        ],
+        "x": 315,
         "y": 100,
         "wires": []
     },
     {
-        "id": "d3c99a2fb0759d6e",
-        "type": "mqtt in",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "topic": "",
-        "qos": "2",
-        "datatype": "auto",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 440,
+        "id": "5bd71f31abc73c65",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelAudioIn",
+        "links": [
+            "644018c6b599b222"
+        ],
+        "x": 1035,
+        "y": 60,
+        "wires": [
+            [
+                "29bba17caca2abd1"
+            ]
+        ],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "fb2259e72576cdf9",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "KlingelEnableSwitch",
+        "label": "Aktiv",
+        "tooltip": "Aktiviere oder deaktivere ALLE Klingel-Funktionen",
+        "group": "f6471c0a62158f36",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "klingelEnableSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 160,
+        "y": 40,
+        "wires": [
+            [
+                "8d9d6a1089ae81a1"
+            ]
+        ]
+    },
+    {
+        "id": "8d9d6a1089ae81a1",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "klingelEnableSwitch",
+        "links": [
+            "f5edcdfc1b892d2e"
+        ],
+        "x": 315,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f5edcdfc1b892d2e",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelEnableIn",
+        "links": [
+            "8d9d6a1089ae81a1"
+        ],
+        "x": 655,
         "y": 160,
         "wires": [
+            [
+                "e8f29149066f87f4"
+            ]
+        ],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "d1704d7e764241e3",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "KlingelMessengerSwitch",
+        "label": "Messenger-Nachricht",
+        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
+        "group": "f6471c0a62158f36",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "klingelMessengerSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "chat",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "chat_bubble_outline",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "d736f1829a3d8565"
+            ]
+        ]
+    },
+    {
+        "id": "d736f1829a3d8565",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "klingelMessengerSwitch",
+        "links": [
+            "80847de70f541784"
+        ],
+        "x": 315,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "80847de70f541784",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelMessengerIn",
+        "links": [
+            "d736f1829a3d8565"
+        ],
+        "x": 1035,
+        "y": 140,
+        "wires": [
+            [
+                "20bc9963bd38cecd"
+            ]
+        ],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "f7619582f84dcfaa",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "KlingelHistorieSwitch",
+        "label": "Schreibe in Historie",
+        "tooltip": "Schreibe Klingeln in Historientabelle",
+        "group": "f6471c0a62158f36",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "klingelHistorySwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "grid_on",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "grid_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "0cfb7d8af64066cc"
+            ]
+        ]
+    },
+    {
+        "id": "0cfb7d8af64066cc",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "klingelHistorieSwitch",
+        "links": [
+            "a8addc971e126709"
+        ],
+        "x": 315,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a8addc971e126709",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelHistorieIn",
+        "links": [
+            "0cfb7d8af64066cc"
+        ],
+        "x": 1035,
+        "y": 260,
+        "wires": [
+            [
+                "3d6014238e34a9f7"
+            ]
+        ],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "400c2a8b379635cc",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "DoorDetectorAudioSwitch",
+        "label": "Audio-Signal",
+        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
+        "group": "4f1ab8464bc5464e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "doorAudioSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "notifications",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "notifications_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1330,
+        "y": 100,
+        "wires": [
+            [
+                "29b2dbcc4d059759"
+            ]
+        ]
+    },
+    {
+        "id": "24d2f2733022abe1",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "DoorDetectorMessengerSwitch",
+        "label": "Messenger-Nachricht",
+        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
+        "group": "4f1ab8464bc5464e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "doorMessengerSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "chat",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "chat_bubble_outline",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1310,
+        "y": 160,
+        "wires": [
+            [
+                "5f082bfe75093f2b"
+            ]
+        ]
+    },
+    {
+        "id": "7ee0595a96d9dff2",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "DoorDetectorHistorieSwitch",
+        "label": "Schreibe in Historie",
+        "tooltip": "Schreibe Klingeln in Historientabelle",
+        "group": "4f1ab8464bc5464e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "doorHistorieSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "grid_on",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "grid_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1320,
+        "y": 220,
+        "wires": [
+            [
+                "ca0f93010716db9b"
+            ]
+        ]
+    },
+    {
+        "id": "9ff247663cbcd4aa",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "DoorDetectorEnableSwitch",
+        "label": "Aktiv",
+        "tooltip": "Aktiviere oder deaktivere ALLE HaustürDetector-Funktionen",
+        "group": "4f1ab8464bc5464e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "doorEnableSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1320,
+        "y": 40,
+        "wires": [
+            [
+                "47de2dbf6ad48895"
+            ]
+        ]
+    },
+    {
+        "id": "da70b94e1f9d9f40",
+        "type": "comment",
+        "z": "790abfecdef18970",
+        "name": "Icon Location",
+        "info": "Icons von hier: https://www.angularjswiki.com/de/angular/angular-material-icons-list-mat-icon-list/",
+        "x": 970,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c8b356f1d9181828",
+        "type": "ui_slider",
+        "z": "790abfecdef18970",
+        "name": "DisplayEnableLengthSlider",
+        "label": "Display Anzeige Dauer",
+        "tooltip": "Wie lange das Display der Klingel angeschaltet sein soll, wenn Nachrichten angezeigt werden (Sekunden)",
+        "group": "f6471c0a62158f36",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "120",
+        "step": "5",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "19e4a7b0d1aeaafe"
+            ]
+        ]
+    },
+    {
+        "id": "b444e3f6382097cc",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "DisplayEnableSwitch",
+        "label": "Display Aktiviert",
+        "tooltip": "Aktiviere oder Deaktiviere das gesamte Display",
+        "group": "f6471c0a62158f36",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": true,
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "73a320b62e9dea12"
+            ]
+        ]
+    },
+    {
+        "id": "0eaa81b6bfe5deed",
+        "type": "ui_template",
+        "z": "790abfecdef18970",
+        "group": "242479a4a77e0476",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "TODO\n<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 960,
+        "y": 80,
+        "wires": [
             []
+        ]
+    },
+    {
+        "id": "19e4a7b0d1aeaafe",
+        "type": "mqtt out",
+        "z": "790abfecdef18970",
+        "name": "Update Klingel Display OnTime",
+        "topic": "/DoorAssistant/Klingel/Settings/DisplayDuration",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 430,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "73a320b62e9dea12",
+        "type": "mqtt out",
+        "z": "790abfecdef18970",
+        "name": "Update Klingel Display Enable",
+        "topic": "/DoorAssistant/Klingel/Settings/DisplayEnable",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 430,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "47de2dbf6ad48895",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "doorEnableSwitch",
+        "links": [
+            "585f6814eea559bf"
+        ],
+        "x": 1495,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "29b2dbcc4d059759",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "doorAudioSwitch",
+        "links": [
+            "ef1123285df745e1"
+        ],
+        "x": 1495,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5f082bfe75093f2b",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "doorMessengerSwitch",
+        "links": [
+            "cc5ac32caaa815b8"
+        ],
+        "x": 1495,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ca0f93010716db9b",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "doorHistorieSwitch",
+        "links": [
+            "a13a23de5b110c44"
+        ],
+        "x": 1495,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f2deebfd255d5619",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "BriefkastenDetectorEnableSwitch",
+        "label": "Aktiv",
+        "tooltip": "Aktiviere oder deaktivere ALLE BriefkastenDetector-Funktionen",
+        "group": "08607024c7e3ecad",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "briefkastenEnableSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 200,
+        "y": 660,
+        "wires": [
+            [
+                "60640ff60d24fd33"
+            ]
+        ]
+    },
+    {
+        "id": "16c27ad7e552fd44",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "BriefkastenDetectorAudioSwitch",
+        "label": "Audio-Signal",
+        "tooltip": "Spielt einen Sound auf dem Raspberry-Pi ab",
+        "group": "08607024c7e3ecad",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "briefkastenAudioSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "notifications",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "notifications_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "a2742713705af42c"
+            ]
+        ]
+    },
+    {
+        "id": "803f237d91d17217",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "BriefkastenDetectorMessengerSwitch",
+        "label": "Messenger-Nachricht",
+        "tooltip": "Versende Benachrichtung per eingestelltem Messenger-Dienst",
+        "group": "08607024c7e3ecad",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "briefkastenMessengerSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "chat",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "chat_bubble_outline",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "cc705cb6057cf485"
+            ]
+        ]
+    },
+    {
+        "id": "c7c80280031918dc",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "BriefkastenDetectorHistorieSwitch",
+        "label": "Schreibe in Historie",
+        "tooltip": "Schreibe Klingeln in Historientabelle",
+        "group": "08607024c7e3ecad",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "briefkastenHistorySwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "grid_on",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "grid_off",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 200,
+        "y": 840,
+        "wires": [
+            [
+                "b282835131ee2fea"
+            ]
+        ]
+    },
+    {
+        "id": "60640ff60d24fd33",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "briefkastenEnableSwitch",
+        "links": [
+            "0f7f890419aa8be4"
+        ],
+        "x": 395,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a2742713705af42c",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "briefkastenAudioSwitch",
+        "links": [
+            "1ef7d43815058e9e"
+        ],
+        "x": 395,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "cc705cb6057cf485",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "briefkastenMessengerSwitch",
+        "links": [],
+        "x": 395,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b282835131ee2fea",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "briefkastenHistorieSwitch",
+        "links": [
+            "649c786e2904d6c1"
+        ],
+        "x": 395,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "0f7f890419aa8be4",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenEnableIn",
+        "links": [
+            "60640ff60d24fd33"
+        ],
+        "x": 695,
+        "y": 560,
+        "wires": [
+            [
+                "6feb46805eac59c9"
+            ]
+        ],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "1ef7d43815058e9e",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenAudioIn",
+        "links": [
+            "a2742713705af42c"
+        ],
+        "x": 1015,
+        "y": 460,
+        "wires": [
+            [
+                "f734139f51182b01"
+            ]
+        ],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "8d3d05a98b3dc658",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenMessengerIn",
+        "links": [],
+        "x": 1015,
+        "y": 560,
+        "wires": [
+            [
+                "a8f13040b0acdf98"
+            ]
+        ],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "649c786e2904d6c1",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenHistorieIn",
+        "links": [
+            "b282835131ee2fea"
+        ],
+        "x": 1015,
+        "y": 720,
+        "wires": [
+            [
+                "0f2dc082c6d61e52"
+            ]
+        ],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "43db9962062a2063",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Stringify",
+        "func": "if (msg.payload == 0){\n    return {\n        \"topic\": \"doorOpened\",\n        \"payload\": \"Die Haustür wurde geöffnet\"\n    };\n}\n\nif(msg.payload == 1){\n    return {\n        \"topic\": \"doorClosed\",\n        \"payload\": \"Die Haustür wurde geschlossen\"\n    };\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 1040,
+        "wires": [
+            [
+                "6fe5e37a4acfdc7e"
+            ]
+        ]
+    },
+    {
+        "id": "6fe5e37a4acfdc7e",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Enable-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorEnableSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1040,
+        "wires": [
+            [
+                "61390f33bd79e486",
+                "5cd0595af3821963",
+                "376611d0f7d4fee1"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "61390f33bd79e486",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Audio-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorAudioSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 920,
+        "wires": [
+            [
+                "0a4ffccf64f101f7"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "5cd0595af3821963",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Messenger-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return {\n            \"topic\": msg.topic,\n            \"payload\": {\n                \"chatId\": 1955069403,\n                \"type\": \"message\",\n                \"content\": msg.payload\n            }\n        };\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1040,
+        "wires": [
+            [
+                "dfab1775f868b7e9"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "376611d0f7d4fee1",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "History-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorHistorySwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1120,
+        "wires": [
+            [
+                "a3bbdca3a3ba277c"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "0a4ffccf64f101f7",
+        "type": "speakerpi-output",
+        "z": "5fffdd7bd03e62e5",
+        "choose": "givenfile",
+        "filename": "/home/pi/police_s.wav",
+        "channels": "1",
+        "bitdepth": "16",
+        "samplerate": "22050",
+        "name": "SPEAKER",
+        "x": 1390,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3bbdca3a3ba277c",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "func": "node.warn(\"Received Detector History Call\")\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1960,
+        "y": 1120,
+        "wires": [],
+        "icon": "font-awesome/fa-unlink"
+    },
+    {
+        "id": "dfab1775f868b7e9",
+        "type": "telegram sender",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1410,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "585f6814eea559bf",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenEnableIn",
+        "links": [
+            "47de2dbf6ad48895"
+        ],
+        "x": 715,
+        "y": 1000,
+        "wires": [
+            [
+                "6fe5e37a4acfdc7e"
+            ]
+        ]
+    },
+    {
+        "id": "ef1123285df745e1",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "doorAudioIn",
+        "links": [
+            "29b2dbcc4d059759"
+        ],
+        "x": 1035,
+        "y": 900,
+        "wires": [
+            [
+                "61390f33bd79e486"
+            ]
+        ]
+    },
+    {
+        "id": "cc5ac32caaa815b8",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "doorMessengerIn",
+        "links": [
+            "5f082bfe75093f2b"
+        ],
+        "x": 1035,
+        "y": 1000,
+        "wires": [
+            [
+                "5cd0595af3821963"
+            ]
+        ]
+    },
+    {
+        "id": "a13a23de5b110c44",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "doorHistorieIn",
+        "links": [
+            "ca0f93010716db9b"
+        ],
+        "x": 1035,
+        "y": 1160,
+        "wires": [
+            [
+                "376611d0f7d4fee1"
+            ]
         ]
     }
 ]
