@@ -241,6 +241,34 @@
         "height": 1
     },
     {
+        "id": "0b2a1642d8ba7d50",
+        "type": "ui_group",
+        "name": "Misc",
+        "tab": "8c3a0fe6168eb6b2",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "fe9b4de4.dcd72",
+        "type": "ui_group",
+        "name": "Name list",
+        "tab": "da612906.998368",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false
+    },
+    {
+        "id": "da612906.998368",
+        "type": "ui_tab",
+        "name": "Main-PC",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "9c67be281362cd0c",
         "type": "mqtt out",
         "z": "372db699749e8d7d",
@@ -292,7 +320,7 @@
         "type": "mqtt out",
         "z": "372db699749e8d7d",
         "name": "",
-        "topic": "/DoorAssistant/Detector/Input",
+        "topic": "/DoorAssistant/Briefkasten/Detected",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -301,7 +329,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 420,
+        "x": 450,
         "y": 760,
         "wires": []
     },
@@ -394,7 +422,7 @@
         "rap": true,
         "rh": 0,
         "x": 150,
-        "y": 400,
+        "y": 620,
         "wires": [
             [
                 "067fe98f6691059c"
@@ -427,7 +455,7 @@
         "repair": false,
         "outputs": 3,
         "x": 360,
-        "y": 400,
+        "y": 620,
         "wires": [
             [
                 "4002428cebcdc6b2"
@@ -461,7 +489,7 @@
         "repair": false,
         "outputs": 2,
         "x": 600,
-        "y": 620,
+        "y": 840,
         "wires": [
             [
                 "6feb46805eac59c9"
@@ -492,7 +520,7 @@
         "repair": false,
         "outputs": 2,
         "x": 600,
-        "y": 220,
+        "y": 440,
         "wires": [
             [
                 "e8f29149066f87f4"
@@ -514,7 +542,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 360,
+        "y": 580,
         "wires": [],
         "icon": "font-awesome/fa-exclamation-triangle"
     },
@@ -530,7 +558,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 800,
+        "y": 1020,
         "wires": [],
         "icon": "font-awesome/fa-warning"
     },
@@ -546,7 +574,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 760,
+        "y": 980,
         "wires": [],
         "icon": "font-awesome/fa-warning"
     },
@@ -560,8 +588,8 @@
         "bitdepth": "16",
         "samplerate": "22050",
         "name": "SPEAKER",
-        "x": 1330,
-        "y": 80,
+        "x": 1370,
+        "y": 300,
         "wires": [
             []
         ]
@@ -576,7 +604,7 @@
         "debounce": "25",
         "read": false,
         "x": 150,
-        "y": 1040,
+        "y": 1240,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -595,7 +623,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 160,
+        "y": 380,
         "wires": [
             [
                 "29bba17caca2abd1",
@@ -617,7 +645,7 @@
         "finalize": "",
         "libs": [],
         "x": 1150,
-        "y": 80,
+        "y": 300,
         "wires": [
             [
                 "7890b33b97cbd6a5"
@@ -637,10 +665,10 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 160,
+        "y": 380,
         "wires": [
             [
-                "cc83344250eb5a65"
+                "8485826340d0c228"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -657,29 +685,13 @@
         "finalize": "",
         "libs": [],
         "x": 1160,
-        "y": 220,
+        "y": 440,
         "wires": [
             [
-                "3ccb61d424dc9016"
+                "44935e930c8ee088"
             ]
         ],
         "icon": "font-awesome/fa-question"
-    },
-    {
-        "id": "3ccb61d424dc9016",
-        "type": "function",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "func": "node.warn(\"Received Klingel History Call\")\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1960,
-        "y": 220,
-        "wires": [],
-        "icon": "font-awesome/fa-unlink"
     },
     {
         "id": "6feb46805eac59c9",
@@ -693,7 +705,7 @@
         "finalize": "",
         "libs": [],
         "x": 840,
-        "y": 600,
+        "y": 820,
         "wires": [
             [
                 "f734139f51182b01",
@@ -715,7 +727,7 @@
         "finalize": "",
         "libs": [],
         "x": 1150,
-        "y": 480,
+        "y": 700,
         "wires": [
             [
                 "beb2781250a79020"
@@ -735,10 +747,10 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 600,
+        "y": 820,
         "wires": [
             [
-                "02abb73efe87f341"
+                "6a0a653e5f2091c6"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -755,10 +767,10 @@
         "finalize": "",
         "libs": [],
         "x": 1160,
-        "y": 680,
+        "y": 900,
         "wires": [
             [
-                "e3e8cf52c16925cd"
+                "9e225189340365af"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -773,27 +785,11 @@
         "bitdepth": "16",
         "samplerate": "22050",
         "name": "SPEAKER",
-        "x": 1330,
-        "y": 480,
+        "x": 1370,
+        "y": 700,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "e3e8cf52c16925cd",
-        "type": "function",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "func": "node.warn(\"Received Detector History Call\")\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1960,
-        "y": 680,
-        "wires": [],
-        "icon": "font-awesome/fa-unlink"
     },
     {
         "id": "3b14f17a82437726",
@@ -910,95 +906,13 @@
         "wires": []
     },
     {
-        "id": "1b176c2177ffe4ba",
-        "type": "telegram sender",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "bot": "dfb9b9ca7a860aee",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 1590,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cc83344250eb5a65",
-        "type": "change",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"chatId\":1955069403,\"type\":\"message\",\"content\":\"Jemand hat geklingelt!\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1380,
-        "y": 160,
-        "wires": [
-            [
-                "1b176c2177ffe4ba"
-            ]
-        ]
-    },
-    {
-        "id": "3adb7bdeef37c2df",
-        "type": "telegram sender",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "bot": "dfb9b9ca7a860aee",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 1590,
-        "y": 600,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "02abb73efe87f341",
-        "type": "change",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"chatId\":1955069403,\"type\":\"message\",\"content\":\"Sie haben Post!\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1380,
-        "y": 600,
-        "wires": [
-            [
-                "3adb7bdeef37c2df"
-            ]
-        ]
-    },
-    {
         "id": "51f8aba9f0c8c98e",
         "type": "comment",
         "z": "5fffdd7bd03e62e5",
         "name": "TODOS",
         "info": "- Make Telegram ChatId in change nodes dynamic\n- Improve Bot Description etc.\n- Centralize Configuration nodes somewhere",
-        "x": 170,
-        "y": 160,
+        "x": 1170,
+        "y": 40,
         "wires": []
     },
     {
@@ -1023,7 +937,7 @@
         "payload": "0",
         "payloadType": "num",
         "x": 140,
-        "y": 940,
+        "y": 1140,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -1052,7 +966,7 @@
         "payload": "1",
         "payloadType": "num",
         "x": 140,
-        "y": 980,
+        "y": 1180,
         "wires": [
             [
                 "af782fe8082faa51"
@@ -1071,7 +985,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1040,
+        "y": 1240,
         "wires": [
             [
                 "43db9962062a2063"
@@ -1096,7 +1010,7 @@
         "min": "1",
         "max": "60",
         "step": 1,
-        "x": 180,
+        "x": 240,
         "y": 280,
         "wires": [
             [
@@ -1118,7 +1032,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 410,
+        "x": 470,
         "y": 280,
         "wires": []
     },
@@ -1147,7 +1061,7 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 170,
+        "x": 230,
         "y": 100,
         "wires": [
             [
@@ -1163,7 +1077,7 @@
         "links": [
             "5bd71f31abc73c65"
         ],
-        "x": 315,
+        "x": 375,
         "y": 100,
         "wires": []
     },
@@ -1176,7 +1090,7 @@
             "644018c6b599b222"
         ],
         "x": 1035,
-        "y": 60,
+        "y": 280,
         "wires": [
             [
                 "29bba17caca2abd1"
@@ -1209,7 +1123,7 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 160,
+        "x": 220,
         "y": 40,
         "wires": [
             [
@@ -1225,7 +1139,7 @@
         "links": [
             "f5edcdfc1b892d2e"
         ],
-        "x": 315,
+        "x": 375,
         "y": 40,
         "wires": []
     },
@@ -1238,7 +1152,7 @@
             "8d9d6a1089ae81a1"
         ],
         "x": 655,
-        "y": 160,
+        "y": 380,
         "wires": [
             [
                 "e8f29149066f87f4"
@@ -1271,7 +1185,7 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 150,
+        "x": 210,
         "y": 160,
         "wires": [
             [
@@ -1287,7 +1201,7 @@
         "links": [
             "80847de70f541784"
         ],
-        "x": 315,
+        "x": 375,
         "y": 160,
         "wires": []
     },
@@ -1300,7 +1214,7 @@
             "d736f1829a3d8565"
         ],
         "x": 1035,
-        "y": 140,
+        "y": 360,
         "wires": [
             [
                 "20bc9963bd38cecd"
@@ -1333,7 +1247,7 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 160,
+        "x": 220,
         "y": 220,
         "wires": [
             [
@@ -1349,7 +1263,7 @@
         "links": [
             "a8addc971e126709"
         ],
-        "x": 315,
+        "x": 375,
         "y": 220,
         "wires": []
     },
@@ -1362,7 +1276,7 @@
             "0cfb7d8af64066cc"
         ],
         "x": 1035,
-        "y": 260,
+        "y": 480,
         "wires": [
             [
                 "3d6014238e34a9f7"
@@ -1449,7 +1363,7 @@
         "height": 0,
         "passthru": false,
         "decouple": "false",
-        "topic": "doorHistorieSwitch",
+        "topic": "doorHistorySwitch",
         "topicType": "str",
         "style": "",
         "onvalue": "true",
@@ -1530,7 +1444,7 @@
         "min": "20",
         "max": "120",
         "step": "5",
-        "x": 140,
+        "x": 200,
         "y": 400,
         "wires": [
             [
@@ -1563,7 +1477,7 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": true,
-        "x": 160,
+        "x": 220,
         "y": 340,
         "wires": [
             [
@@ -1605,7 +1519,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 430,
+        "x": 490,
         "y": 400,
         "wires": []
     },
@@ -1623,7 +1537,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 430,
+        "x": 490,
         "y": 340,
         "wires": []
     },
@@ -1700,8 +1614,8 @@
         "officon": "settings_power",
         "offcolor": "RED",
         "animate": false,
-        "x": 200,
-        "y": 660,
+        "x": 180,
+        "y": 580,
         "wires": [
             [
                 "60640ff60d24fd33"
@@ -1733,8 +1647,8 @@
         "officon": "notifications_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 210,
-        "y": 720,
+        "x": 190,
+        "y": 640,
         "wires": [
             [
                 "a2742713705af42c"
@@ -1766,8 +1680,8 @@
         "officon": "chat_bubble_outline",
         "offcolor": "RED",
         "animate": false,
-        "x": 190,
-        "y": 780,
+        "x": 170,
+        "y": 700,
         "wires": [
             [
                 "cc705cb6057cf485"
@@ -1799,8 +1713,8 @@
         "officon": "grid_off",
         "offcolor": "RED",
         "animate": false,
-        "x": 200,
-        "y": 840,
+        "x": 180,
+        "y": 760,
         "wires": [
             [
                 "b282835131ee2fea"
@@ -1815,8 +1729,8 @@
         "links": [
             "0f7f890419aa8be4"
         ],
-        "x": 395,
-        "y": 660,
+        "x": 375,
+        "y": 580,
         "wires": []
     },
     {
@@ -1827,8 +1741,8 @@
         "links": [
             "1ef7d43815058e9e"
         ],
-        "x": 395,
-        "y": 720,
+        "x": 375,
+        "y": 640,
         "wires": []
     },
     {
@@ -1836,9 +1750,11 @@
         "type": "link out",
         "z": "790abfecdef18970",
         "name": "briefkastenMessengerSwitch",
-        "links": [],
-        "x": 395,
-        "y": 780,
+        "links": [
+            "8d3d05a98b3dc658"
+        ],
+        "x": 375,
+        "y": 700,
         "wires": []
     },
     {
@@ -1849,8 +1765,8 @@
         "links": [
             "649c786e2904d6c1"
         ],
-        "x": 395,
-        "y": 840,
+        "x": 375,
+        "y": 760,
         "wires": []
     },
     {
@@ -1862,7 +1778,7 @@
             "60640ff60d24fd33"
         ],
         "x": 695,
-        "y": 560,
+        "y": 780,
         "wires": [
             [
                 "6feb46805eac59c9"
@@ -1879,7 +1795,7 @@
             "a2742713705af42c"
         ],
         "x": 1015,
-        "y": 460,
+        "y": 680,
         "wires": [
             [
                 "f734139f51182b01"
@@ -1892,9 +1808,11 @@
         "type": "link in",
         "z": "5fffdd7bd03e62e5",
         "name": "briefkastenMessengerIn",
-        "links": [],
+        "links": [
+            "cc705cb6057cf485"
+        ],
         "x": 1015,
-        "y": 560,
+        "y": 780,
         "wires": [
             [
                 "a8f13040b0acdf98"
@@ -1911,7 +1829,7 @@
             "b282835131ee2fea"
         ],
         "x": 1015,
-        "y": 720,
+        "y": 940,
         "wires": [
             [
                 "0f2dc082c6d61e52"
@@ -1931,7 +1849,7 @@
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 1040,
+        "y": 1240,
         "wires": [
             [
                 "6fe5e37a4acfdc7e"
@@ -1950,7 +1868,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 1040,
+        "y": 1240,
         "wires": [
             [
                 "61390f33bd79e486",
@@ -1972,7 +1890,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 920,
+        "y": 1120,
         "wires": [
             [
                 "0a4ffccf64f101f7"
@@ -1985,17 +1903,17 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "Messenger-GATE",
-        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return {\n            \"topic\": msg.topic,\n            \"payload\": {\n                \"chatId\": 1955069403,\n                \"type\": \"message\",\n                \"content\": msg.payload\n            }\n        };\n    }\n}\n",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"doorMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg;\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
         "x": 1190,
-        "y": 1040,
+        "y": 1240,
         "wires": [
             [
-                "dfab1775f868b7e9"
+                "31fe2e2bc14acccf"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -2012,10 +1930,10 @@
         "finalize": "",
         "libs": [],
         "x": 1180,
-        "y": 1120,
+        "y": 1320,
         "wires": [
             [
-                "a3bbdca3a3ba277c"
+                "65b09596f5839e79"
             ]
         ],
         "icon": "font-awesome/fa-question"
@@ -2031,37 +1949,7 @@
         "samplerate": "22050",
         "name": "SPEAKER",
         "x": 1390,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a3bbdca3a3ba277c",
-        "type": "function",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "func": "node.warn(\"Received Detector History Call\")\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1960,
         "y": 1120,
-        "wires": [],
-        "icon": "font-awesome/fa-unlink"
-    },
-    {
-        "id": "dfab1775f868b7e9",
-        "type": "telegram sender",
-        "z": "5fffdd7bd03e62e5",
-        "name": "",
-        "bot": "dfb9b9ca7a860aee",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 1410,
-        "y": 1040,
         "wires": [
             []
         ]
@@ -2075,7 +1963,7 @@
             "47de2dbf6ad48895"
         ],
         "x": 715,
-        "y": 1000,
+        "y": 1200,
         "wires": [
             [
                 "6fe5e37a4acfdc7e"
@@ -2091,7 +1979,7 @@
             "29b2dbcc4d059759"
         ],
         "x": 1035,
-        "y": 900,
+        "y": 1100,
         "wires": [
             [
                 "61390f33bd79e486"
@@ -2107,7 +1995,7 @@
             "5f082bfe75093f2b"
         ],
         "x": 1035,
-        "y": 1000,
+        "y": 1200,
         "wires": [
             [
                 "5cd0595af3821963"
@@ -2123,11 +2011,684 @@
             "ca0f93010716db9b"
         ],
         "x": 1035,
-        "y": 1160,
+        "y": 1360,
         "wires": [
             [
                 "376611d0f7d4fee1"
             ]
+        ]
+    },
+    {
+        "id": "26aab2278f22add8",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "telegramMessengerSwitch",
+        "label": "Nachrichten via Telegram",
+        "tooltip": "",
+        "group": "0b2a1642d8ba7d50",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "telegramMessengerSwitch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1320,
+        "y": 580,
+        "wires": [
+            [
+                "c2891a686e28fa4f"
+            ]
+        ]
+    },
+    {
+        "id": "082b4a8e13ded938",
+        "type": "ui_switch",
+        "z": "790abfecdef18970",
+        "name": "discordMessengerSwitch",
+        "label": "Nachrichten via Discord",
+        "tooltip": "",
+        "group": "0b2a1642d8ba7d50",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "discordMessengerEnable",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_power",
+        "oncolor": "GREEN",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_power",
+        "offcolor": "RED",
+        "animate": false,
+        "x": 1330,
+        "y": 700,
+        "wires": [
+            [
+                "c23c8a2f155c3670"
+            ]
+        ]
+    },
+    {
+        "id": "c2891a686e28fa4f",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "telegramMessengerSwitch",
+        "links": [
+            "f5c6a9b5fd4b3bf3"
+        ],
+        "x": 1495,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c23c8a2f155c3670",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "discordMessengerSwitch",
+        "links": [
+            "1a24b10105213548"
+        ],
+        "x": 1495,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "26f37dff5cc92e0b",
+        "type": "ui_text_input",
+        "z": "790abfecdef18970",
+        "name": "",
+        "label": "Telegram ChatID",
+        "tooltip": "Chat ID, an die Nachrichten gesendet werden sollen",
+        "group": "0b2a1642d8ba7d50",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "telegramChatID",
+        "topicType": "str",
+        "x": 1350,
+        "y": 640,
+        "wires": [
+            [
+                "30dc402447fc0e9c"
+            ]
+        ]
+    },
+    {
+        "id": "30dc402447fc0e9c",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "telegramChatIdText",
+        "links": [],
+        "x": 1495,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "468443440e961e5b",
+        "type": "link in",
+        "z": "ba5dcfac39603564",
+        "name": "telegramMessageIn",
+        "links": [
+            "72d01adebf564f53"
+        ],
+        "x": 155,
+        "y": 160,
+        "wires": [
+            [
+                "d46aa19a32a5f182"
+            ]
+        ]
+    },
+    {
+        "id": "d31aa4e5e1ac6cf3",
+        "type": "ui_button",
+        "z": "790abfecdef18970",
+        "name": "",
+        "group": "0b2a1642d8ba7d50",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Historientabelle leeren",
+        "tooltip": "Entfernt alle Einträge aus der Historientabelle",
+        "color": "",
+        "bgcolor": "RED",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clearHistoryTable",
+        "topicType": "str",
+        "x": 1340,
+        "y": 760,
+        "wires": [
+            [
+                "e7d8863c33ef1892"
+            ]
+        ]
+    },
+    {
+        "id": "e7d8863c33ef1892",
+        "type": "file",
+        "z": "790abfecdef18970",
+        "name": "",
+        "filename": "data/history.csv",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 1580,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0e61818e60a01d7a",
+        "type": "file",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "filename": "data/history.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 680,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c22380ab366641f",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "toCSV",
+        "func": "var csvString = new Date().toLocaleString('de-DE') + \";\" + msg.payload;\n\nreturn {\n    \"topic\": msg.topic,\n    \"payload\": csvString\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 40,
+        "wires": [
+            [
+                "0e61818e60a01d7a"
+            ]
+        ]
+    },
+    {
+        "id": "65b09596f5839e79",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "doorDetectorHistoryOut",
+        "links": [
+            "c853688828545376"
+        ],
+        "x": 1335,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "d9fbb63c087dfa51",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenHistoryOut",
+        "links": [
+            "c853688828545376"
+        ],
+        "x": 1515,
+        "y": 900,
+        "wires": [],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "5b0d329d8646851c",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelHistoryOut",
+        "links": [
+            "c853688828545376"
+        ],
+        "x": 1515,
+        "y": 440,
+        "wires": [],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "c853688828545376",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "historyWriteIn",
+        "links": [
+            "5b0d329d8646851c",
+            "65b09596f5839e79",
+            "d9fbb63c087dfa51"
+        ],
+        "x": 395,
+        "y": 40,
+        "wires": [
+            [
+                "7c22380ab366641f"
+            ]
+        ]
+    },
+    {
+        "id": "16478c2ffad568fd",
+        "type": "comment",
+        "z": "5fffdd7bd03e62e5",
+        "name": "WRITE TO HISTORY",
+        "info": "",
+        "x": 240,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "44935e930c8ee088",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Jemand hat geklingelt!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 440,
+        "wires": [
+            [
+                "5b0d329d8646851c"
+            ]
+        ]
+    },
+    {
+        "id": "9e225189340365af",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Post!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 900,
+        "wires": [
+            [
+                "d9fbb63c087dfa51"
+            ]
+        ]
+    },
+    {
+        "id": "8c66266df0899c07",
+        "type": "comment",
+        "z": "5fffdd7bd03e62e5",
+        "name": "SEND MESSENGER NOTIFICATION",
+        "info": "",
+        "x": 190,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "40c21b881be6c224",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "messengerNotificationIn",
+        "links": [
+            "ef4cb9e64f588b24",
+            "94cd65d7a55bccf8",
+            "31fe2e2bc14acccf"
+        ],
+        "x": 395,
+        "y": 200,
+        "wires": [
+            [
+                "1198f724c1a02a92",
+                "9fbff776d88c45cd"
+            ]
+        ]
+    },
+    {
+        "id": "1198f724c1a02a92",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Telegram-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"telegramMessengerSwitch\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "72d01adebf564f53"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "f5c6a9b5fd4b3bf3",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "telegramMessengerSwitchIn",
+        "links": [
+            "c2891a686e28fa4f"
+        ],
+        "x": 395,
+        "y": 140,
+        "wires": [
+            [
+                "1198f724c1a02a92"
+            ]
+        ],
+        "icon": "node-red-contrib-telegrambot/telegram.png"
+    },
+    {
+        "id": "72d01adebf564f53",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "telegramMessageOut",
+        "links": [
+            "468443440e961e5b"
+        ],
+        "x": 695,
+        "y": 160,
+        "wires": [],
+        "icon": "node-red-contrib-telegrambot/telegram.png"
+    },
+    {
+        "id": "9fbff776d88c45cd",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "Discord-GATE",
+        "func": "var enabled = context.get(\"status\");\n\nif(msg.topic === \"discordMessengerEnable\"){\n    enabled = msg.payload;\n    context.set(\"status\", msg.payload);\n    \n    return null; //no message on state change\n}else{\n    if(enabled){\n        return msg; //passthrough button press\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "ba3e1fb0bc7ddbda"
+            ]
+        ],
+        "icon": "font-awesome/fa-question"
+    },
+    {
+        "id": "1a24b10105213548",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "discordMessengerSwitchIn",
+        "links": [
+            "c23c8a2f155c3670"
+        ],
+        "x": 395,
+        "y": 260,
+        "wires": [
+            [
+                "9fbff776d88c45cd"
+            ]
+        ],
+        "icon": "node-red-contrib-discord/discord.png"
+    },
+    {
+        "id": "df488d69b84db929",
+        "type": "link in",
+        "z": "ba5dcfac39603564",
+        "name": "discordMessageIn",
+        "links": [
+            "ba3e1fb0bc7ddbda"
+        ],
+        "x": 155,
+        "y": 240,
+        "wires": [
+            [
+                "fb8d1a6464d2e931"
+            ]
+        ]
+    },
+    {
+        "id": "ba3e1fb0bc7ddbda",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "discordMessageOut",
+        "links": [
+            "df488d69b84db929"
+        ],
+        "x": 695,
+        "y": 240,
+        "wires": [],
+        "icon": "node-red-contrib-discord/discord.png"
+    },
+    {
+        "id": "fb8d1a6464d2e931",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "",
+        "func": "node.warn(\"Received Discord\");\nreturn msg;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ef4cb9e64f588b24",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "briefkastenMessengerOut",
+        "links": [
+            "40c21b881be6c224"
+        ],
+        "x": 1515,
+        "y": 820,
+        "wires": [],
+        "icon": "node-red/envelope.svg"
+    },
+    {
+        "id": "94cd65d7a55bccf8",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "klingelMessengerOut",
+        "links": [
+            "40c21b881be6c224"
+        ],
+        "x": 1515,
+        "y": 380,
+        "wires": [],
+        "icon": "font-awesome/fa-bell"
+    },
+    {
+        "id": "31fe2e2bc14acccf",
+        "type": "link out",
+        "z": "5fffdd7bd03e62e5",
+        "name": "doorMessengerOut",
+        "links": [
+            "40c21b881be6c224"
+        ],
+        "x": 1335,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "fcc9738b264a3222",
+        "type": "telegram sender",
+        "z": "ba5dcfac39603564",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d46aa19a32a5f182",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "Configure Telegram ChatID",
+        "func": "// CHANGE ME:\nvar chatId = \"1955069403\";\n\nreturn {\n    \"topic\": msg.topic,\n    \"payload\": {\n        \"chatId\": chatId,\n        \"type\": \"message\",\n        \"content\": msg.payload\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "fcc9738b264a3222"
+            ]
+        ]
+    },
+    {
+        "id": "8485826340d0c228",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Jemand hat geklingelt!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 380,
+        "wires": [
+            [
+                "94cd65d7a55bccf8"
+            ]
+        ]
+    },
+    {
+        "id": "6a0a653e5f2091c6",
+        "type": "change",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Post!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 820,
+        "wires": [
+            [
+                "ef4cb9e64f588b24"
+            ]
+        ]
+    },
+    {
+        "id": "63a514814d774029",
+        "type": "telegram receiver",
+        "z": "ba5dcfac39603564",
+        "name": "",
+        "bot": "dfb9b9ca7a860aee",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 910,
+        "y": 160,
+        "wires": [
+            [
+                "4d970d545c0ecf51",
+                "be3749174f8c08c4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4d970d545c0ecf51",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "GET_ID on /start",
+        "func": "if(msg.payload.content === \"/start\"){\n    node.warn(\"ChatID: \" + msg.payload.chatId);\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "be3749174f8c08c4",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "handleMessage",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 160,
+        "wires": [
+            []
         ]
     }
 ]
