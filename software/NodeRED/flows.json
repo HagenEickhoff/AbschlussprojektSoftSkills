@@ -1,5 +1,12 @@
 [
     {
+        "id": "ba5dcfac39603564",
+        "type": "tab",
+        "label": "Configuration",
+        "disabled": false,
+        "info": "Contains all nodes that need to be configured by the enduser."
+    },
+    {
         "id": "5fffdd7bd03e62e5",
         "type": "tab",
         "label": "DoorAssistant",
@@ -12,13 +19,6 @@
         "label": "Dashboard",
         "disabled": false,
         "info": "Contains all Dashboard nodes as well as the actions taken when they are updated"
-    },
-    {
-        "id": "ba5dcfac39603564",
-        "type": "tab",
-        "label": "Configuration",
-        "disabled": false,
-        "info": "Contains all nodes that need to be configured by the enduser."
     },
     {
         "id": "372db699749e8d7d",
@@ -311,6 +311,11 @@
         "height": 1
     },
     {
+        "id": "256e7266680380a8",
+        "type": "discord-token",
+        "name": "DoorAssistantBot"
+    },
+    {
         "id": "9c67be281362cd0c",
         "type": "mqtt out",
         "z": "372db699749e8d7d",
@@ -324,8 +329,8 @@
         "correl": "",
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
-        "x": 430,
-        "y": 700,
+        "x": 420,
+        "y": 80,
         "wires": []
     },
     {
@@ -349,8 +354,8 @@
         "topic": "",
         "payload": "Pressed",
         "payloadType": "str",
-        "x": 210,
-        "y": 700,
+        "x": 200,
+        "y": 80,
         "wires": [
             [
                 "9c67be281362cd0c"
@@ -372,7 +377,7 @@
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
         "x": 450,
-        "y": 760,
+        "y": 140,
         "wires": []
     },
     {
@@ -397,7 +402,7 @@
         "payload": "MQTT IN 2",
         "payloadType": "str",
         "x": 200,
-        "y": 760,
+        "y": 140,
         "wires": [
             [
                 "f76c6b19923d9eb1"
@@ -419,7 +424,7 @@
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
         "x": 430,
-        "y": 860,
+        "y": 240,
         "wires": []
     },
     {
@@ -444,7 +449,7 @@
         "payload": "MQTT IN 3",
         "payloadType": "str",
         "x": 200,
-        "y": 860,
+        "y": 240,
         "wires": [
             [
                 "569ea312758d097c"
@@ -834,125 +839,11 @@
         ]
     },
     {
-        "id": "3b14f17a82437726",
-        "type": "telegram sender",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "bot": "dfb9b9ca7a860aee",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 970,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f85a18e385831281",
-        "type": "inject",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "egal",
-        "payload": "{\"chatId\":\"1955069403\",\"type\":\"message\",\"content\":\"Hallo Welt\"}",
-        "payloadType": "json",
-        "x": 350,
-        "y": 580,
-        "wires": [
-            [
-                "3b14f17a82437726",
-                "8c374552b346e184"
-            ]
-        ]
-    },
-    {
-        "id": "8c374552b346e184",
-        "type": "debug",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "2d3659ed7dc354d4",
-        "type": "telegram receiver",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "bot": "dfb9b9ca7a860aee",
-        "saveDataDir": "",
-        "filterCommands": false,
-        "x": 250,
-        "y": 480,
-        "wires": [
-            [
-                "dacc69f07692c3ec",
-                "1af6dec783b6d9b6"
-            ],
-            [
-                "8c374552b346e184"
-            ]
-        ]
-    },
-    {
-        "id": "dacc69f07692c3ec",
-        "type": "function",
-        "z": "372db699749e8d7d",
-        "name": "",
-        "func": "if(msg.payload.content === \"Ping\"){\n    msg.payload.content = \"Pong\";\n    return msg;\n}\nreturn null;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 480,
-        "wires": [
-            [
-                "3b14f17a82437726"
-            ]
-        ]
-    },
-    {
-        "id": "1af6dec783b6d9b6",
-        "type": "function",
-        "z": "372db699749e8d7d",
-        "name": "GET_ID",
-        "func": "if(msg.payload.content === \"/start\"){\n    node.warn(\"ChatID: \" + msg.payload.chatId);\n}",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "51f8aba9f0c8c98e",
         "type": "comment",
         "z": "5fffdd7bd03e62e5",
         "name": "TODOS",
-        "info": "- Make Telegram ChatId in change nodes dynamic\n- Improve Bot Description etc.\n- Centralize Configuration nodes somewhere",
+        "info": "- Make Notification Texts configurable\n- Remove non-config nodes from Config tab\n- Check GPIO Implementation",
         "x": 1170,
         "y": 40,
         "wires": []
@@ -2192,13 +2083,14 @@
         "links": [
             "72d01adebf564f53"
         ],
-        "x": 155,
+        "x": 175,
         "y": 160,
         "wires": [
             [
                 "d46aa19a32a5f182"
             ]
-        ]
+        ],
+        "icon": "node-red-contrib-telegrambot/telegram.png"
     },
     {
         "id": "d31aa4e5e1ac6cf3",
@@ -2523,13 +2415,14 @@
         "links": [
             "ba3e1fb0bc7ddbda"
         ],
-        "x": 155,
-        "y": 240,
+        "x": 315,
+        "y": 460,
         "wires": [
             [
-                "fb8d1a6464d2e931"
+                "b068750d4e5a0cea"
             ]
-        ]
+        ],
+        "icon": "node-red-contrib-discord/discord.png"
     },
     {
         "id": "ba3e1fb0bc7ddbda",
@@ -2543,21 +2436,6 @@
         "y": 240,
         "wires": [],
         "icon": "node-red-contrib-discord/discord.png"
-    },
-    {
-        "id": "fb8d1a6464d2e931",
-        "type": "function",
-        "z": "ba5dcfac39603564",
-        "name": "",
-        "func": "node.warn(\"Received Discord\");\nreturn msg;",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 240,
-        "wires": []
     },
     {
         "id": "ef4cb9e64f588b24",
@@ -2605,7 +2483,7 @@
         "bot": "dfb9b9ca7a860aee",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 590,
+        "x": 630,
         "y": 160,
         "wires": [
             []
@@ -2622,13 +2500,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 360,
         "y": 160,
         "wires": [
             [
                 "fcc9738b264a3222"
             ]
-        ]
+        ],
+        "icon": "node-red-contrib-telegrambot/telegram.png"
     },
     {
         "id": "8485826340d0c228",
@@ -2692,47 +2571,37 @@
         "bot": "dfb9b9ca7a860aee",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 910,
-        "y": 160,
+        "x": 170,
+        "y": 220,
         "wires": [
             [
-                "4d970d545c0ecf51",
                 "be3749174f8c08c4"
             ],
             []
         ]
     },
     {
-        "id": "4d970d545c0ecf51",
-        "type": "function",
-        "z": "ba5dcfac39603564",
-        "name": "GET_ID on /start",
-        "func": "if(msg.payload.content === \"/start\"){\n    node.warn(\"ChatID: \" + msg.payload.chatId);\n}",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "be3749174f8c08c4",
         "type": "function",
         "z": "ba5dcfac39603564",
         "name": "handleMessage",
-        "func": "\nreturn msg;",
-        "outputs": 1,
+        "func": "//Out1: Telegram Message, Out2: MQTT Send to display\nvar DISPLAY_SIZE = 2 * 16;\n\nif(msg.payload.content === \"/start\" || msg.payload.content === \"/info\"){\n    return [{\n        \"topic\": \"sendTelegramMessage\",\n        \"payload\": {\n            \"chatId\": msg.payload.chatId,\n            \"type\": \"message\",\n            \"content\": \"ChatID: \" + msg.payload.chatId\n        }\n    }, null];\n}\n\nif(msg.payload.content.startsWith(\"/send \")){\n    var text = msg.payload.content.replace(\"/send \", \"\");\n    \n    if(text.length <= DISPLAY_SIZE){\n        return [{\n            \"topic\": \"sendTelegramMessage\",\n            \"payload\": {\n                \"chatId\": msg.payload.chatId,\n                \"type\": \"message\",\n                \"content\": \"Nachricht an Display geschickt.\"\n            }\n        },\n        {\n            \"topic\": \"sendMQTTMessage\",\n            \"payload\": text\n        }];\n    }\n    \n    return [{\n        \"topic\": \"sendTelegramMessage\",\n            \"payload\": {\n                \"chatId\": msg.payload.chatId,\n                \"type\": \"message\",\n                \"content\": \"Nachricht zu lang, maximal \" + DISPLAY_SIZE + \" Zeichen.\"\n            }\n    }, null];\n    \n}\n\nreturn null;",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 160,
+        "x": 400,
+        "y": 220,
         "wires": [
-            []
-        ]
+            [
+                "fcc9738b264a3222"
+            ],
+            [
+                "df1d2302dc2ca7fd"
+            ]
+        ],
+        "icon": "node-red-contrib-telegrambot/telegram.png"
     },
     {
         "id": "414742986b80161c",
@@ -2999,5 +2868,192 @@
                 "0eaa81b6bfe5deed"
             ]
         ]
+    },
+    {
+        "id": "fdc8e74ba7a57ffb",
+        "type": "ui_text_input",
+        "z": "790abfecdef18970",
+        "name": "",
+        "label": "Display Text",
+        "tooltip": "Auf dem Display anzuzeigender Text",
+        "group": "f6471c0a62158f36",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "ab5a2c3ce43c6ba2"
+            ]
+        ]
+    },
+    {
+        "id": "e57f21d0ef59fa8d",
+        "type": "ui_toast",
+        "z": "790abfecdef18970",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "RED",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "show error",
+        "x": 670,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ab5a2c3ce43c6ba2",
+        "type": "function",
+        "z": "790abfecdef18970",
+        "name": "LengthCheck",
+        "func": "var DISPLAY_SIZE = 2 * 16;\n\nif(msg.payload.length <= DISPLAY_SIZE){\n    return [null, msg];\n}\nmsg.payload = \"Die Nachricht ist zu lang (maximal \" + DISPLAY_SIZE + \" Zeichen)\";\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "e57f21d0ef59fa8d"
+            ],
+            [
+                "45e186136cd9eaa2"
+            ]
+        ]
+    },
+    {
+        "id": "45e186136cd9eaa2",
+        "type": "mqtt out",
+        "z": "790abfecdef18970",
+        "name": "Update Display Text",
+        "topic": "/DoorAssistant/Klingel/Display/Text",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 700,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "df1d2302dc2ca7fd",
+        "type": "mqtt out",
+        "z": "ba5dcfac39603564",
+        "name": "Update Display Text",
+        "topic": "/DoorAssistant/Klingel/Display/Text",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 840,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f33aea4c0d94c92f",
+        "type": "discordSendMessage",
+        "z": "ba5dcfac39603564",
+        "name": "",
+        "channel": "",
+        "token": "256e7266680380a8",
+        "x": 760,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "20af0e218ea2c8f0",
+        "type": "discordMessage",
+        "z": "ba5dcfac39603564",
+        "name": "discord receiver",
+        "token": "256e7266680380a8",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "5ef720ca8f3ef44d"
+            ]
+        ]
+    },
+    {
+        "id": "5ef720ca8f3ef44d",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "filter",
+        "func": "if(msg.channel.type === \"dm\"){\n    return msg;\n} else if(msg.channel.type === \"text\" && msg.channel.name === \"doorassistant-notifications\") {\n   return msg; \n}\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "613ea39f9014f2a6"
+            ]
+        ]
+    },
+    {
+        "id": "b068750d4e5a0cea",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "Configure Discord ChannelID",
+        "func": "// CHANGE ME\nvar CHANNEL_ID = \"884465858485841944\";\n\nmsg.channel = CHANNEL_ID;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "f33aea4c0d94c92f"
+            ]
+        ],
+        "icon": "node-red-contrib-discord/discord.png"
+    },
+    {
+        "id": "613ea39f9014f2a6",
+        "type": "function",
+        "z": "ba5dcfac39603564",
+        "name": "handleMessage",
+        "func": "// Out1: Discord Message, Out2: MQTT Display Update\nvar DISPLAY_SIZE = 2 * 16;\n\nif(msg.payload === \"/info\"){\n    return [{\n        \"channel\": msg.channel.id,\n        \"payload\": \"Channel ID: \" + msg.channel.id\n    }, null];\n}\n\nif(msg.payload.startsWith(\"/send \")){\n    var text = msg.payload.replace(\"/send \", \"\");\n    \n    if(text.length <= DISPLAY_SIZE){\n        return [{\n            \"channel\": msg.channel.id,\n            \"payload\": \"Nachricht an Display geschickt.\"\n        },\n        {\n            \"topic\": \"sendMQTTMessage\",\n            \"payload\": text\n        }];\n    }else{\n        return [{\n            \"channel\": msg.channel.id,\n            \"payload\": \"Nachricht zu lang, maximal \" + DISPLAY_SIZE + \" Zeichen\"\n        }, null];\n    }\n}\n\nreturn null;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "f33aea4c0d94c92f"
+            ],
+            [
+                "df1d2302dc2ca7fd"
+            ]
+        ],
+        "icon": "node-red-contrib-discord/discord.png"
     }
 ]
