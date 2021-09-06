@@ -140,7 +140,7 @@
         "tab": "8c3a0fe6168eb6b2",
         "order": 1,
         "disp": true,
-        "width": "9",
+        "width": "6",
         "collapse": false
     },
     {
@@ -174,7 +174,7 @@
     {
         "id": "242479a4a77e0476",
         "type": "ui_group",
-        "name": "Group 1",
+        "name": "MainGroup",
         "tab": "71a8f076f9291d03",
         "order": 1,
         "disp": false,
@@ -251,22 +251,64 @@
         "collapse": false
     },
     {
-        "id": "fe9b4de4.dcd72",
-        "type": "ui_group",
-        "name": "Name list",
-        "tab": "da612906.998368",
-        "order": 1,
-        "disp": true,
-        "width": "15",
-        "collapse": false
+        "id": "99e56507398a372c",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 4,
+        "width": "4",
+        "height": 1
     },
     {
-        "id": "da612906.998368",
-        "type": "ui_tab",
-        "name": "Main-PC",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "ed8fd5bd585420aa",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 8,
+        "width": "6",
+        "height": 1
+    },
+    {
+        "id": "084e87768c60b552",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e5347124b3ddb7fb",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 1,
+        "width": "18",
+        "height": 1
+    },
+    {
+        "id": "b12ce2fb2f16f8a4",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 10,
+        "width": "18",
+        "height": 1
+    },
+    {
+        "id": "1ca46b4d48400149",
+        "type": "ui_spacer",
+        "z": "790abfecdef18970",
+        "name": "spacer",
+        "group": "242479a4a77e0476",
+        "order": 2,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "9c67be281362cd0c",
@@ -988,7 +1030,7 @@
         "y": 1240,
         "wires": [
             [
-                "43db9962062a2063"
+                "173705713ad1bcc8"
             ]
         ]
     },
@@ -1490,17 +1532,17 @@
         "type": "ui_template",
         "z": "790abfecdef18970",
         "group": "242479a4a77e0476",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "TODO\n<div ng-bind-html=\"msg.payload\"></div>",
+        "name": "Tabelle",
+        "order": 7,
+        "width": "18",
+        "height": "16",
+        "format": "<!-- Style Source: https://johnsardine.com/freebies/dl-html-css/simple-little-tab/ (Modified) -->\n<style>\ntable {\n\tfont-family: Arial, Helvetica, sans-serif;\n\tcolor: #666;\n\tfont-size: 16px;\n\ttext-shadow: 1px 1px 0px #fff;\n\tbackground: #eaebec;\n\tmargin: 20px;\n\tborder: #ccc 1px solid;\n\n\t-moz-border-radius: 3px;\n\t-webkit-border-radius: 3px;\n\tborder-radius: 3px;\n\n\t-moz-box-shadow: 0 1px 2px #d1d1d1;\n\t-webkit-box-shadow: 0 1px 2px #d1d1d1;\n\tbox-shadow: 0 1px 2px #d1d1d1;\n}\ntable th {\n\tpadding: 21px 25px 22px 25px;\n\tborder-top: 1px solid #fafafa;\n\tborder-bottom: 1px solid #e0e0e0;\n\n\tbackground: #ededed;\n\tbackground: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));\n\tbackground: -moz-linear-gradient(top,  #ededed,  #ebebeb);\n}\ntable th:first-child {\n\ttext-align: left;\n\tpadding-left: 20px;\n}\ntable tr:first-child th:first-child {\n\t-moz-border-radius-topleft: 3px;\n\t-webkit-border-top-left-radius: 3px;\n\tborder-top-left-radius: 3px;\n}\ntable tr:first-child th:last-child {\n\t-moz-border-radius-topright: 3px;\n\t-webkit-border-top-right-radius: 3px;\n\tborder-top-right-radius: 3px;\n}\ntable tr {\n\ttext-align: center;\n\tpadding-left: 20px;\n}\ntable td:first-child {\n\ttext-align: left;\n\tpadding-left: 20px;\n\tborder-left: 0;\n}\ntable td {\n\tpadding: 9px;\n\tborder-top: 1px solid #ffffff;\n\tborder-bottom: 1px solid #e0e0e0;\n\tborder-left: 1px solid #e0e0e0;\n\n\tbackground: #fafafa;\n\tbackground: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));\n\tbackground: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);\n}\ntable tr.even td {\n\tbackground: #f6f6f6;\n\tbackground: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));\n\tbackground: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);\n}\ntable tr:last-child td {\n\tborder-bottom: 0;\n}\ntable tr:last-child td:first-child {\n\t-moz-border-radius-bottomleft: 3px;\n\t-webkit-border-bottom-left-radius: 3px;\n\tborder-bottom-left-radius: 3px;\n}\ntable tr:last-child td:last-child {\n\t-moz-border-radius-bottomright: 3px;\n\t-webkit-border-bottom-right-radius: 3px;\n\tborder-bottom-right-radius: 3px;\n}\ntable tr:hover td {\n\tbackground: #f2f2f2;\n\tbackground: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));\n\tbackground: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);\t\n}\n</style>\n\n<table>\n    <tr>\n        <th>Zeit</th>\n        <th>Event</th>\n    </tr>\n    <tr ng-repeat=\"payload in msg.payload\">\n        <td>{{payload.time}}</td>\n        <td>{{payload.event}}</td>\n    </tr>\n</table>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "x": 960,
-        "y": 80,
+        "x": 1160,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -1848,7 +1890,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 800,
         "y": 1240,
         "wires": [
             [
@@ -1867,7 +1909,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 860,
+        "x": 1060,
         "y": 1240,
         "wires": [
             [
@@ -1889,7 +1931,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1370,
         "y": 1120,
         "wires": [
             [
@@ -1909,7 +1951,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1390,
         "y": 1240,
         "wires": [
             [
@@ -1929,7 +1971,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\n\ncontext.set(\"status\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1380,
         "y": 1320,
         "wires": [
             [
@@ -1948,7 +1990,7 @@
         "bitdepth": "16",
         "samplerate": "22050",
         "name": "SPEAKER",
-        "x": 1390,
+        "x": 1590,
         "y": 1120,
         "wires": [
             []
@@ -1962,7 +2004,7 @@
         "links": [
             "47de2dbf6ad48895"
         ],
-        "x": 715,
+        "x": 915,
         "y": 1200,
         "wires": [
             [
@@ -1978,7 +2020,7 @@
         "links": [
             "29b2dbcc4d059759"
         ],
-        "x": 1035,
+        "x": 1235,
         "y": 1100,
         "wires": [
             [
@@ -1994,7 +2036,7 @@
         "links": [
             "5f082bfe75093f2b"
         ],
-        "x": 1035,
+        "x": 1235,
         "y": 1200,
         "wires": [
             [
@@ -2010,7 +2052,7 @@
         "links": [
             "ca0f93010716db9b"
         ],
-        "x": 1035,
+        "x": 1235,
         "y": 1360,
         "wires": [
             [
@@ -2163,10 +2205,10 @@
         "type": "ui_button",
         "z": "790abfecdef18970",
         "name": "",
-        "group": "0b2a1642d8ba7d50",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "group": "242479a4a77e0476",
+        "order": 9,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "label": "Historientabelle leeren",
         "tooltip": "Entfernt alle Einträge aus der Historientabelle",
@@ -2177,11 +2219,12 @@
         "payloadType": "str",
         "topic": "clearHistoryTable",
         "topicType": "str",
-        "x": 1340,
-        "y": 760,
+        "x": 220,
+        "y": 1140,
         "wires": [
             [
-                "e7d8863c33ef1892"
+                "2d0b6a8593da97ba",
+                "5469a38f601d1639"
             ]
         ]
     },
@@ -2191,12 +2234,12 @@
         "z": "790abfecdef18970",
         "name": "",
         "filename": "data/history.csv",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "delete",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
         "encoding": "none",
-        "x": 1580,
-        "y": 760,
+        "x": 660,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -2222,7 +2265,7 @@
         "type": "function",
         "z": "5fffdd7bd03e62e5",
         "name": "toCSV",
-        "func": "var csvString = new Date().toLocaleString('de-DE') + \";\" + msg.payload;\n\nreturn {\n    \"topic\": msg.topic,\n    \"payload\": csvString\n};",
+        "func": "var csvString = new Date().toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', hour12: false, minute: '2-digit' }) + \";\" + msg.payload;\n\nreturn {\n    \"topic\": msg.topic,\n    \"payload\": csvString\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2244,7 +2287,7 @@
         "links": [
             "c853688828545376"
         ],
-        "x": 1335,
+        "x": 1535,
         "y": 1320,
         "wires": []
     },
@@ -2550,7 +2593,7 @@
         "links": [
             "40c21b881be6c224"
         ],
-        "x": 1335,
+        "x": 1535,
         "y": 1240,
         "wires": []
     },
@@ -2689,6 +2732,272 @@
         "y": 160,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "414742986b80161c",
+        "type": "file in",
+        "z": "790abfecdef18970",
+        "name": "",
+        "filename": "data/history.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 680,
+        "y": 1020,
+        "wires": [
+            [
+                "84e42233d4d1726d"
+            ]
+        ]
+    },
+    {
+        "id": "84e42233d4d1726d",
+        "type": "csv",
+        "z": "790abfecdef18970",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "time,event",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 850,
+        "y": 1020,
+        "wires": [
+            [
+                "3978547a309e55df"
+            ]
+        ]
+    },
+    {
+        "id": "f05a5ca3ab300458",
+        "type": "ui_button",
+        "z": "790abfecdef18970",
+        "name": "",
+        "group": "242479a4a77e0476",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Load",
+        "tooltip": "Lade Historiendaten",
+        "color": "",
+        "bgcolor": "GREEN",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 1020,
+        "wires": [
+            [
+                "414742986b80161c"
+            ]
+        ]
+    },
+    {
+        "id": "2756db9460ba7d36",
+        "type": "ui_text",
+        "z": "790abfecdef18970",
+        "group": "242479a4a77e0476",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "<h3>Event-Historie</h3>",
+        "format": "",
+        "layout": "row-center",
+        "x": 210,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "2d0b6a8593da97ba",
+        "type": "delay",
+        "z": "790abfecdef18970",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "x": 450,
+        "y": 1080,
+        "wires": [
+            [
+                "414742986b80161c"
+            ]
+        ]
+    },
+    {
+        "id": "5469a38f601d1639",
+        "type": "function",
+        "z": "790abfecdef18970",
+        "name": "emptyPayload",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1140,
+        "wires": [
+            [
+                "e7d8863c33ef1892"
+            ]
+        ]
+    },
+    {
+        "id": "121e48714f68dec4",
+        "type": "ui_slider",
+        "z": "790abfecdef18970",
+        "name": "DoorDetectionIntervall",
+        "label": "Detection Intervall",
+        "tooltip": "Zeit, die zwischen zwei mal Türöffnen mindestens vergehen muss",
+        "group": "4f1ab8464bc5464e",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "outs": "end",
+        "topic": "doorIntervalSwitch",
+        "topicType": "str",
+        "min": "1",
+        "max": "60",
+        "step": 1,
+        "x": 1340,
+        "y": 280,
+        "wires": [
+            [
+                "466b41fb04881228"
+            ]
+        ]
+    },
+    {
+        "id": "0f07ae176e54d3bb",
+        "type": "ui_slider",
+        "z": "790abfecdef18970",
+        "name": "BriefkastenDetectionIntervall",
+        "label": "Detection Intervall",
+        "tooltip": "Zeit, die zwischen zwei Briefmeldungen mindestens vergehen muss",
+        "group": "08607024c7e3ecad",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "str",
+        "min": "1",
+        "max": "60",
+        "step": 1,
+        "x": 200,
+        "y": 820,
+        "wires": [
+            [
+                "eb7250ddd659db77"
+            ]
+        ]
+    },
+    {
+        "id": "eb7250ddd659db77",
+        "type": "mqtt out",
+        "z": "790abfecdef18970",
+        "name": "Update Briefkasten MinInterval",
+        "topic": "/DoorAssistant/Briefkasten/Settings/MinInterval",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 490,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "466b41fb04881228",
+        "type": "link out",
+        "z": "790abfecdef18970",
+        "name": "doorIntervalSwitch",
+        "links": [
+            "ea96eca2947b5c20"
+        ],
+        "x": 1495,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "173705713ad1bcc8",
+        "type": "function",
+        "z": "5fffdd7bd03e62e5",
+        "name": "interval-GATE",
+        "func": "var lastOpenTime = context.get(\"lastOpenTime\");\nvar lastCloseTime = context.get(\"lastCloseTime\");\nvar minInterval = context.get(\"minInterval\");\nvar now = Date.now();\n\nif(msg.topic === \"doorIntervalSwitch\"){\n    context.set(\"minInterval\", msg.payload * 1000);\n    return null;\n}else{\n    if(msg.payload === 0){\n        if((now - minInterval) >= lastOpenTime){\n            context.set(\"lastOpenTime\", now);\n            return msg;\n        }\n        return null;\n    }else if(msg.payload === 1){\n        if((now - minInterval) >= lastCloseTime){\n            context.set(\"lastCloseTime\", now);\n            return msg;\n        }\n        return null;\n    }\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"lastOpenTime\", 0);\ncontext.set(\"lastCloseTime\", 0);\ncontext.set(\"minInterval\", 1000);",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1240,
+        "wires": [
+            [
+                "43db9962062a2063"
+            ]
+        ],
+        "icon": "font-awesome/fa-clock-o"
+    },
+    {
+        "id": "ea96eca2947b5c20",
+        "type": "link in",
+        "z": "5fffdd7bd03e62e5",
+        "name": "",
+        "links": [
+            "466b41fb04881228"
+        ],
+        "x": 475,
+        "y": 1200,
+        "wires": [
+            [
+                "173705713ad1bcc8"
+            ]
+        ],
+        "icon": "font-awesome/fa-clock-o"
+    },
+    {
+        "id": "3978547a309e55df",
+        "type": "function",
+        "z": "790abfecdef18970",
+        "name": "reverse",
+        "func": "msg.payload.reverse();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 1020,
+        "wires": [
+            [
+                "0eaa81b6bfe5deed"
+            ]
         ]
     }
 ]
