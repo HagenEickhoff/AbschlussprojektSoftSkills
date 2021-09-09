@@ -3,13 +3,17 @@
 #include <PubSubClient.h>
 #include <WiFiManager.h>
 #include <ArduinoJson.h>
+#include <LiquidCrystal_I2C.h>
 
 #define SWITCH D5
+// LCD: D1 SCL, D2 SDA (also used: 5V, GND) 
 
 // MQTT Topics, WiFi Config
 //--------------------------------
 const char* MQTT_TOPIC_ACTION = "/DoorAssistant/Klingel/Press";
-const char* MQTT_TOPIC_SETTINGS = "/DoorAssistant/Klingel/Settings/MinInterval";
+const char* MQTT_TOPIC_SETTING_INTERVAL = "/DoorAssistant/Klingel/Settings/MinInterval";
+const char* MQTT_TOPIC_SETTING_DISPLAY_DURATION = "/DoorAssistant/Klingel/Settings/DisplayDuration";
+const char* MQTT_TOPIC_TEXT = "/DoorAssistant/Klingel/Display/Text";
 const char* SSID = "Klingel WiFi Setup";
 const char* WIFI_PASSWORD = "123";
 //--------------------------------
@@ -23,11 +27,20 @@ char* MQTT_USER = "user (optional)";
 char* MQTT_PASSWORD = "user password (optional)";
 //--------------------------------
 
+// LCD-Display Setup
+//--------------------------------
+const int LCD_COLUMNS = 16; // Alt: 20
+const int LCD_ROWS = 2; // Alt: 4
+LiquidCrystal_I2C lcd(0x27, LCD_COLUMNS, LCD_ROWS);
+//--------------------------------
+
 WiFiClient espClient;
 PubSubClient mqtt_client(espClient);
 
 long lastPressTime = 0;
 long MIN_PRESS_INTERVAL = 5000;//setting updated via MQTT
+long lastDisplayEnableTime = 0;
+long DISPLAY_ENABLE_DURATION = 20000;
 
 void setup_wifi()
 {
@@ -61,22 +74,6 @@ void setup_wifi()
   MQTT_PASSWORD = strdup(param_mqtt_password.getValue());
   
   saveMQTTParametersToFS();
-  
-  //DEBUG
-  Serial.println("RECEIVED PARAMS:");
-  Serial.print("SERVER:");
-  Serial.println(MQTT_SERVER);
-  Serial.print("PORT:");
-  Serial.println(MQTT_PORT);
-  Serial.print("USER:");
-  Serial.println(MQTT_USER);
-  Serial.print("PW:");
-  Serial.println(MQTT_PASSWORD);
-
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
 }
 
 // write MQTT configuration to filesystgem in .json
@@ -138,20 +135,51 @@ void loadMQTTParametersFromFS()
   }
 }
 
+void printTextToLCD(char receivedPayload[], int length){
+  int charCounter = 0, rowCounter = 0;
+  int i = 0;
+
+  lcd.clear();
+  lcd.backlight();
+  lcd.setCursor(0, rowCounter);
+
+  while(rowCounter < LCD_ROWS){
+    lcd.print(receivedPayload[charCounter]);
+
+    i++;
+    charCounter++;
+    if(charCounter >= length){
+      break;
+    }
+    
+    if(i == LCD_COLUMNS){
+      rowCounter++;
+      i = 0;
+      if(rowCounter == LCD_ROWS){
+        break;
+      }
+      lcd.setCursor(0, rowCounter);
+    }
+  }
+  lastDisplayEnableTime = millis();
+}
+
 // callback method for settings changes
 void settingsCallback(char *topic, byte *payload, unsigned int length)
 {
-  if (strcmp(topic, MQTT_TOPIC_SETTINGS) == 0)
+  char receivedPayload[length];
+  for (int i = 0; i < length; i++)
   {
-    char receivedPayload[length];
-    for (int i = 0; i < length; i++)
-    {
-      Serial.print((char)payload[i]);
-      receivedPayload[i] = (char)payload[i];
-    }
-    Serial.println();
-    MIN_PRESS_INTERVAL = atoi(receivedPayload) * 1000; // convert s to ms
+    receivedPayload[i] = (char)payload[i];
+    delay(1);//remove this and everything burns (i.e. random symbols are appended to the end of receivedPayload, atoi() becomes inaccurate). why? I don't know.
   }
+    
+  if(strcmp(topic, MQTT_TOPIC_SETTING_INTERVAL) == 0)
+    MIN_PRESS_INTERVAL = atoi(receivedPayload) * 1000; // convert s to ms
+  else if(strcmp(topic, MQTT_TOPIC_SETTING_DISPLAY_DURATION) == 0)
+    DISPLAY_ENABLE_DURATION = atoi(receivedPayload) * 1000;
+  else if(strcmp(topic, MQTT_TOPIC_TEXT) == 0)
+    printTextToLCD(receivedPayload, length);
 }
 
 void reconnect()
@@ -170,7 +198,9 @@ void reconnect()
     {
       Serial.println("connected");
       // Once connected, (re-)subscribe to settings
-      mqtt_client.subscribe(MQTT_TOPIC_SETTINGS);
+      mqtt_client.subscribe(MQTT_TOPIC_SETTING_INTERVAL);
+      mqtt_client.subscribe(MQTT_TOPIC_SETTING_DISPLAY_DURATION);
+      mqtt_client.subscribe(MQTT_TOPIC_TEXT);
     }
     else
     {
@@ -186,11 +216,19 @@ void reconnect()
 void setup()
 {
   Serial.begin(115200);
+  lcd.init();
+  lcd.backlight();
+  lcd.print("WiFi Setup...");
   setup_wifi();
 
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("MQTT Setup...");
   mqtt_client.setServer(MQTT_SERVER, atoi(MQTT_PORT));
   mqtt_client.setCallback(settingsCallback);
 
+  lcd.clear();
+  lcd.noBacklight();
   pinMode(SWITCH, INPUT);
 }
 
@@ -213,5 +251,14 @@ void loop()
       val_str.toCharArray(val_buff, val_str.length() + 1);
       mqtt_client.publish(MQTT_TOPIC_ACTION, val_buff);
     }
+  }
+
+    //Serial.print("LET: "); Serial.print(lastDisplayEnableTime); Serial.print("millis "); Serial.println(millis());
+    //Serial.print("DED: "); Serial.println(DISPLAY_ENABLE_DURATION);
+
+  if(lastDisplayEnableTime != 0 && (millis() - lastDisplayEnableTime > DISPLAY_ENABLE_DURATION)){
+    lcd.clear();
+    lcd.noBacklight();
+    lastDisplayEnableTime = 0;
   }
 }
