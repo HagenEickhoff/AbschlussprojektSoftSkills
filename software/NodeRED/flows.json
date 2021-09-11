@@ -210,7 +210,7 @@
         "id": "dfb9b9ca7a860aee",
         "type": "telegram bot",
         "botname": "UOLSoftSkills_bot",
-        "usernames": "HagenTest",
+        "usernames": "",
         "chatids": "",
         "baseapiurl": "",
         "updatemode": "polling",
@@ -1300,43 +1300,10 @@
         "max": "120",
         "step": "5",
         "x": 200,
-        "y": 400,
-        "wires": [
-            [
-                "19e4a7b0d1aeaafe"
-            ]
-        ]
-    },
-    {
-        "id": "b444e3f6382097cc",
-        "type": "ui_switch",
-        "z": "790abfecdef18970",
-        "name": "DisplayEnableSwitch",
-        "label": "Display Aktiviert",
-        "tooltip": "Aktiviere oder Deaktiviere das gesamte Display",
-        "group": "f6471c0a62158f36",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "settings_power",
-        "oncolor": "GREEN",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "settings_power",
-        "offcolor": "RED",
-        "animate": true,
-        "x": 220,
         "y": 340,
         "wires": [
             [
-                "73a320b62e9dea12"
+                "19e4a7b0d1aeaafe"
             ]
         ]
     },
@@ -1366,24 +1333,6 @@
         "z": "790abfecdef18970",
         "name": "Update Klingel Display OnTime",
         "topic": "/DoorAssistant/Klingel/Settings/DisplayDuration",
-        "qos": "2",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6bccc9f8e5419fdf",
-        "x": 490,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "73a320b62e9dea12",
-        "type": "mqtt out",
-        "z": "790abfecdef18970",
-        "name": "Update Klingel Display Enable",
-        "topic": "/DoorAssistant/Klingel/Settings/DisplayEnable",
         "qos": "2",
         "retain": "true",
         "respTopic": "",
@@ -1932,7 +1881,7 @@
         "offcolor": "RED",
         "animate": false,
         "x": 1170,
-        "y": 700,
+        "y": 640,
         "wires": [
             [
                 "c23c8a2f155c3670"
@@ -1959,40 +1908,6 @@
         "links": [
             "1a24b10105213548"
         ],
-        "x": 1335,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "26f37dff5cc92e0b",
-        "type": "ui_text_input",
-        "z": "790abfecdef18970",
-        "name": "",
-        "label": "Telegram ChatID",
-        "tooltip": "Chat ID, an die Nachrichten gesendet werden sollen",
-        "group": "0b2a1642d8ba7d50",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "mode": "text",
-        "delay": 300,
-        "topic": "telegramChatID",
-        "topicType": "str",
-        "x": 1190,
-        "y": 640,
-        "wires": [
-            [
-                "30dc402447fc0e9c"
-            ]
-        ]
-    },
-    {
-        "id": "30dc402447fc0e9c",
-        "type": "link out",
-        "z": "790abfecdef18970",
-        "name": "telegramChatIdText",
-        "links": [],
         "x": 1335,
         "y": 640,
         "wires": []
@@ -2808,7 +2723,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "ab5a2c3ce43c6ba2"
@@ -2830,7 +2745,7 @@
         "topic": "",
         "name": "show error",
         "x": 670,
-        "y": 460,
+        "y": 400,
         "wires": []
     },
     {
@@ -2845,7 +2760,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "e57f21d0ef59fa8d"
@@ -2870,7 +2785,7 @@
         "expiry": "",
         "broker": "6bccc9f8e5419fdf",
         "x": 700,
-        "y": 520,
+        "y": 460,
         "wires": []
     },
     {
@@ -2995,5 +2910,96 @@
             []
         ],
         "icon": "node-red/alert.svg"
+    },
+    {
+        "id": "477e98dbbaf9518c",
+        "type": "speakerpi-output",
+        "z": "372db699749e8d7d",
+        "choose": "givenfile",
+        "filename": "/home/pi/sounds/sound4.mp3",
+        "channels": "1",
+        "bitdepth": "16",
+        "samplerate": "22050",
+        "name": "",
+        "x": 700,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02fbacebfca5689a",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 510,
+        "y": 400,
+        "wires": [
+            [
+                "477e98dbbaf9518c"
+            ]
+        ]
+    },
+    {
+        "id": "1c880adfc6c09f15",
+        "type": "mqtt out",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "topic": "/DoorAssistant/Klingel/Settings/DisplayDuration",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6bccc9f8e5419fdf",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e13515ffc3fe4042",
+        "type": "inject",
+        "z": "372db699749e8d7d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "1c880adfc6c09f15"
+            ]
+        ]
     }
 ]
