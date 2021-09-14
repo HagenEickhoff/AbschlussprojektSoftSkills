@@ -3,6 +3,8 @@
 #include <PubSubClient.h>
 #include <WiFiManager.h>
 #include <ArduinoJson.h>
+#define ShieldReciever D4
+
 
 // MQTT Topics, WiFi Config
 //--------------------------------
@@ -131,6 +133,7 @@ void reconnect() {
 
 void setup() {
   Serial.begin(115200);
+  pinMode(ShieldReciever, INPUT_PULLUP);
   setup_wifi();
 
   client.setServer(MQTT_SERVER, MQTT_PORT);
@@ -146,15 +149,12 @@ void loop() {
 
   
   if (millis() - lastDetectTime > MIN_PRESS_INTERVAL) {//this time could be a setting, TODO
-    lastDetectTime = millis();
-
-    // TODO: Check if anythings detected...
-    // TODO: ... if so, send any message to MQTT_TOPIC_DETECTOR
-      /*
+    if(digitalRead(ShieldReciever) == 0) {
       String val_str = "Detected"; //any value will do
       char val_buff[val_str.length() + 1];
       val_str.toCharArray(val_buff, val_str.length() + 1);
       client.publish(MQTT_TOPIC_DETECTOR, val_buff);
-      */
+      lastDetectTime = millis();
+    }
   }
 }
