@@ -3,14 +3,13 @@
 #include <PubSubClient.h>
 #include <WiFiManager.h>
 #include <ArduinoJson.h>
+
 #define ShieldReciever D4
-
-
 // MQTT Topics, WiFi Config
 //--------------------------------
-const char* MQTT_TOPIC_ACTION = "/DoorAssistant/Briefkasten/Detected";
-const char* MQTT_TOPIC_SETTING_INTERVAL = "/DoorAssistant/Briefkasten/Settings/MinInterval";
-const char* SSID = "BriefkastenDetector WiFi Setup";
+const char* MQTT_TOPIC_ACTION = "/MED/Briefkasten/Detected";
+const char* MQTT_TOPIC_SETTING_INTERVAL = "/MED/Briefkasten/Settings/MinInterval";
+const char* SSID = "BriefkastenDetektor WiFi Setup";
 const char* WIFI_PASSWORD = "123";
 //--------------------------------
 
@@ -24,7 +23,7 @@ char* MQTT_PASSWORD = "user password (optional)";
 //--------------------------------
 
 WiFiClient espClient;
-PubSubClient client(espClient);
+PubSubClient mqtt_client(espClient);
 
 long lastDetectTime = 0;
 long MIN_PRESS_INTERVAL = 5000;//setting updated via MQTT
@@ -32,10 +31,12 @@ long MIN_PRESS_INTERVAL = 5000;//setting updated via MQTT
 void setup_wifi() {
   delay(10);
   randomSeed(micros());
+  //attempt loading parameters from filesystem
   loadMQTTParametersFromFS();
 
   WiFiManager wifiManager;
 
+  //create custom parameters for MQTT data (potentially filled with previously loaded data)
   WiFiManagerParameter param_mqtt_server("server", "MQTT Server", MQTT_SERVER, 15); //15 -> IPv4. Include IPv6/URI?
   WiFiManagerParameter param_mqtt_port("port", "MQTT Port", MQTT_PORT, 6);
   WiFiManagerParameter param_mqtt_user("user", "MQTT User (optional)", MQTT_USER, 32);
@@ -48,6 +49,7 @@ void setup_wifi() {
 
   while (!wifiManager.autoConnect(SSID, WIFI_PASSWORD))
   {
+    //failed to connect, wait 5s and retry
     delay(5000);
   }
 
@@ -59,7 +61,7 @@ void setup_wifi() {
   
   saveMQTTParametersToFS();
 }
-// write MQTT configuration to filesystgem in .json
+// write MQTT configuration to filesystgem in .json file
 void saveMQTTParametersToFS()
 {
   DynamicJsonDocument doc(256);
@@ -93,6 +95,7 @@ void loadMQTTParametersFromFS()
         if (error)
           return;
 
+        //json parsed, store values
         strcpy(MQTT_SERVER, doc["mqtt_server"]);
         strcpy(MQTT_PORT, doc["mqtt_port"]);
         strcpy(MQTT_USER, doc["mqtt_user"]);
@@ -111,41 +114,44 @@ void settingsCallback(char* topic, byte* payload, unsigned int length) {
     delay(1);//remove this and everything burns (i.e. random symbols are appended to the end of receivedPayload, atoi() becomes inaccurate). why? I don't know.
   }
 
+  // Update local setting(s) depending on topic
   if(strcmp(topic, MQTT_TOPIC_SETTING_INTERVAL) == 0)
     MIN_PRESS_INTERVAL = atoi(receivedPayload) * 1000; // convert s to ms
 }
 
+//continually attempt to reconnect to MQTT broker until possible
 void reconnect() {
   // Loop until we're reconnected
-  while (!client.connected()) {    
+  while (!mqtt_client.connected()) {    
     // Create a random client ID
     String clientId = "Client-";
     clientId += String(random(0xffff), HEX);
     
-    if (client.connect(clientId.c_str(), MQTT_USER, MQTT_PASSWORD)) {
+    if (mqtt_client.connect(clientId.c_str(), MQTT_USER, MQTT_PASSWORD)) {
       // Once connected, (re-)subscribe to settings
-      client.subscribe(MQTT_TOPIC_SETTING_INTERVAL);
+      mqtt_client.subscribe(MQTT_TOPIC_SETTING_INTERVAL);
     } else {
-      delay(5000);
+      delay(5000); // Wait 5 seconds before retrying
     }
   }
 }
 
+//initial setup called on startup
 void setup() {
   Serial.begin(115200);
-  pinMode(ShieldReciever, INPUT_PULLUP);
+  pinMode(ShieldReciever, INPUT_PULLUP); // enable IR-Shield as input
   setup_wifi();
 
-  client.setServer(MQTT_SERVER, MQTT_PORT);
-  client.setCallback(settingsCallback);
+  mqtt_client.setServer(MQTT_SERVER, MQTT_PORT);
+  mqtt_client.setCallback(settingsCallback);
 }
 
 void loop() {
 
-  if (!client.connected()) {
+  if (!mqtt_client.connected()) {
     reconnect();
   }
-  client.loop();
+  mqtt_client.loop();
 
   
   if (millis() - lastDetectTime > MIN_PRESS_INTERVAL) {//this time could be a setting, TODO
