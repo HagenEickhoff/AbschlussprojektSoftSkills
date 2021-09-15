@@ -10,10 +10,10 @@
 
 // MQTT Topics, WiFi Config
 //--------------------------------
-const char* MQTT_TOPIC_ACTION = "/DoorAssistant/Klingel/Press";
-const char* MQTT_TOPIC_SETTING_INTERVAL = "/DoorAssistant/Klingel/Settings/MinInterval";
-const char* MQTT_TOPIC_SETTING_DISPLAY_DURATION = "/DoorAssistant/Klingel/Settings/DisplayDuration";
-const char* MQTT_TOPIC_TEXT = "/DoorAssistant/Klingel/Display/Text";
+const char* MQTT_TOPIC_ACTION = "/MED/Klingel/Press";
+const char* MQTT_TOPIC_SETTING_INTERVAL = "/MED/Klingel/Settings/MinInterval";
+const char* MQTT_TOPIC_SETTING_DISPLAY_DURATION = "/MED/Klingel/Settings/DisplayDuration";
+const char* MQTT_TOPIC_TEXT = "/MED/Klingel/Display/Text";
 const char* SSID = "Klingel WiFi Setup";
 const char* WIFI_PASSWORD = "123";
 //--------------------------------
@@ -40,16 +40,18 @@ PubSubClient mqtt_client(espClient);
 long lastPressTime = 0;
 long MIN_PRESS_INTERVAL = 5000;//setting updated via MQTT
 long lastDisplayEnableTime = 0;
-long DISPLAY_ENABLE_DURATION = 20000;
+long DISPLAY_ENABLE_DURATION = 20000;//setting updated via MQTT
 
 void setup_wifi()
 {
   delay(10);
   randomSeed(micros());
+  //attempt loading parameters from filesystem
   loadMQTTParametersFromFS();
 
   WiFiManager wifiManager;
 
+  //create custom parameters for MQTT data (potentially filled with previously loaded data)
   WiFiManagerParameter param_mqtt_server("server", "MQTT Server", MQTT_SERVER, 15); //15 -> IPv4. Include IPv6/URI?
   WiFiManagerParameter param_mqtt_port("port", "MQTT Port", MQTT_PORT, 6);
   WiFiManagerParameter param_mqtt_user("user", "MQTT User (optional)", MQTT_USER, 32);
@@ -62,8 +64,7 @@ void setup_wifi()
 
   while (!wifiManager.autoConnect(SSID, WIFI_PASSWORD))
   {
-    //failed to connect; print warning & restart MC
-    Serial.println("Failed to connect, retrying...");
+    //failed to connect, wait 5s and retry
     delay(5000);
   }
 
@@ -76,7 +77,7 @@ void setup_wifi()
   saveMQTTParametersToFS();
 }
 
-// write MQTT configuration to filesystgem in .json
+// write MQTT configuration to filesystgem in .json file
 void saveMQTTParametersToFS()
 {
   Serial.println("saving config");
@@ -87,11 +88,8 @@ void saveMQTTParametersToFS()
   doc["mqtt_pass"] = MQTT_PASSWORD;
   
   File configFile = SPIFFS.open("/config.json", "w");
-  if (!configFile)
+  if (configFile)
   {
-    Serial.println("failed to open config file for writing");
-  }else{
-    serializeJson(doc, Serial);
     serializeJson(doc, configFile);
     configFile.flush();
     configFile.close();
@@ -103,38 +101,27 @@ void loadMQTTParametersFromFS()
 {
   if (SPIFFS.begin())
   {
-    Serial.println("mounted file system");
     if (SPIFFS.exists("/config.json"))
     {
-      Serial.println("reading config file");
       File configFile = SPIFFS.open("/config.json", "r");
       if (configFile)
       {
-        Serial.println("opened config file");
         DynamicJsonDocument doc(256);
         DeserializationError error = deserializeJson(doc, configFile);
         if (error)
           return;
 
-        Serial.println("\nparsed json!");
+        //json parsed, store values
         strcpy(MQTT_SERVER, doc["mqtt_server"]);
         strcpy(MQTT_PORT, doc["mqtt_port"]);
         strcpy(MQTT_USER, doc["mqtt_user"]);
         strcpy(MQTT_PASSWORD, doc["mqtt_pass"]);
-        
-        const char* srvr = doc["mqtt_server"];
-        Serial.print("doc server"); Serial.println(srvr);        
-        Serial.print("local server"); Serial.println(MQTT_SERVER);
-        serializeJson(doc, Serial);
       }
     }
   }
-  else
-  {
-    Serial.println("failed to mount FS");
-  }
 }
 
+//print as much of given char[] to connected LCD 
 void printTextToLCD(char receivedPayload[], int length){
   int charCounter = 0, rowCounter = 0;
   int i = 0;
@@ -143,20 +130,21 @@ void printTextToLCD(char receivedPayload[], int length){
   lcd.backlight();
   lcd.setCursor(0, rowCounter);
 
+  //print chars while there are still rows available
   while(rowCounter < LCD_ROWS){
     lcd.print(receivedPayload[charCounter]);
 
     i++;
     charCounter++;
     if(charCounter >= length){
-      break;
+      break;// stop printing if we reached end of passed in char[]
     }
     
     if(i == LCD_COLUMNS){
-      rowCounter++;
+      rowCounter++;// update row num if printed to all cells on current row
       i = 0;
       if(rowCounter == LCD_ROWS){
-        break;
+        break;// stop printing if last row finished
       }
       lcd.setCursor(0, rowCounter);
     }
@@ -174,21 +162,21 @@ void settingsCallback(char *topic, byte *payload, unsigned int length)
     delay(1);//remove this and everything burns (i.e. random symbols are appended to the end of receivedPayload, atoi() becomes inaccurate). why? I don't know.
   }
     
+  // Update local settings or text on LCD depending on topic
   if(strcmp(topic, MQTT_TOPIC_SETTING_INTERVAL) == 0)
-    MIN_PRESS_INTERVAL = atoi(receivedPayload) * 1000; // convert s to ms
+    MIN_PRESS_INTERVAL = atoi(receivedPayload) * 1000;// convert s to ms
   else if(strcmp(topic, MQTT_TOPIC_SETTING_DISPLAY_DURATION) == 0)
-    DISPLAY_ENABLE_DURATION = atoi(receivedPayload) * 1000;
+    DISPLAY_ENABLE_DURATION = atoi(receivedPayload) * 1000;// convert s to ms
   else if(strcmp(topic, MQTT_TOPIC_TEXT) == 0)
     printTextToLCD(receivedPayload, length);
 }
 
+//continually attempt to reconnect to MQTT broker until possible
 void reconnect()
 {
   // Loop until we're reconnected
   while (!mqtt_client.connected())
   {
-    Serial.print("Attempting MQTT connection...");
-
     // Create a random client ID
     String clientId = "Client-";
     clientId += String(random(0xffff), HEX);
@@ -196,23 +184,19 @@ void reconnect()
     // Attempt to connect
     if (mqtt_client.connect(clientId.c_str(), MQTT_USER, MQTT_PASSWORD))
     {
-      Serial.println("connected");
-      // Once connected, (re-)subscribe to settings
+      // Once connected, (re-)subscribe to settings and text
       mqtt_client.subscribe(MQTT_TOPIC_SETTING_INTERVAL);
       mqtt_client.subscribe(MQTT_TOPIC_SETTING_DISPLAY_DURATION);
       mqtt_client.subscribe(MQTT_TOPIC_TEXT);
     }
     else
     {
-      Serial.print("failed, rc=");
-      Serial.print(mqtt_client.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
-      delay(5000);
+      delay(5000); // Wait 5 seconds before retrying
     }
   }
 }
 
+//initial setup called on startup
 void setup()
 {
   Serial.begin(115200);
@@ -229,7 +213,7 @@ void setup()
 
   lcd.clear();
   lcd.noBacklight();
-  pinMode(SWITCH, INPUT);
+  pinMode(SWITCH, INPUT); //enable Klingel-button as input
 }
 
 void loop()
@@ -241,8 +225,9 @@ void loop()
 
   mqtt_client.loop();
 
+  // Klingel-button update
   if (millis() - lastPressTime > MIN_PRESS_INTERVAL)
-  {
+  {//only check press if interval has passed
     if(digitalRead(SWITCH) == 1){
       //pressed
       lastPressTime = millis();
@@ -253,9 +238,7 @@ void loop()
     }
   }
 
-    //Serial.print("LET: "); Serial.print(lastDisplayEnableTime); Serial.print("millis "); Serial.println(millis());
-    //Serial.print("DED: "); Serial.println(DISPLAY_ENABLE_DURATION);
-
+  //LCD update
   if(lastDisplayEnableTime != 0 && (millis() - lastDisplayEnableTime > DISPLAY_ENABLE_DURATION)){
     lcd.clear();
     lcd.noBacklight();
