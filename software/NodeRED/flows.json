@@ -203,7 +203,7 @@
         "id": "dfb9b9ca7a860aee",
         "type": "telegram bot",
         "botname": "UOLSoftSkills_bot",
-        "usernames": "HagenTest",
+        "usernames": "",
         "chatids": "",
         "baseapiurl": "",
         "updatemode": "polling",
